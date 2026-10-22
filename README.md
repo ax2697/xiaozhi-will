@@ -1,154 +1,272 @@
+
 <div align="center">
 
-<img src="assets/banner.svg" alt="晓之意志 · AI 短剧指令路由卡" width="100%" />
+<img src="assets/banner.svg" alt="晓之意志 · AI 短剧指令路由卡 / Xiaozhi Will · Short-Drama Route Card" width="100%" />
 
 # 🧭 晓之意志 · AI 短剧指令路由卡
 
-**v1.0.0** · Xiaozhi Will · Short-Drama Route Card
+### Xiaozhi Will · Short-Drama Route Card
+
+**v1.0.0** · 中文 / English 双语
 
 > 一条「指令 → 文件」的存取约定。
 > 不生产内容，只负责让 AI 在动手之前，读对文件、读对章节。
+>
+> *A routing convention between «instruction» and «file».*
+> *It produces no content — it only makes sure the AI reads the right file, at the right section, before it starts.*
 
 ![Version](https://img.shields.io/badge/version-v1.0.0-6a5acd?style=flat-square)
-![Files](https://img.shields.io/badge/files-157-2ec4b6?style=flat-square)
+![Files](https://img.shields.io/badge/files-159-2ec4b6?style=flat-square)
 ![Templates](https://img.shields.io/badge/templates-8-00b4d8?style=flat-square)
 ![Libs](https://img.shields.io/badge/libs-A%2FB%2FC-8e44ad?style=flat-square)
 ![Models](https://img.shields.io/badge/models-Seedance%202.5%20%7C%20SeedAudio%201.0-9d4edd?style=flat-square)
+![Platform](https://img.shields.io/badge/platform-WorkBuddy%20%7C%20OpenClaw%20%7C%20Coze%20%7C%20Dify-ff9f43?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-ffca3a?style=flat-square)
+![Stars](https://img.shields.io/github/stars/ax2697/xiaozhi-will?style=social)
 
-[这是什么](#什么是晓之意志) · [为什么需要它](#为什么需要它) · [工作方式](#工作方式) · [快速开始](#快速开始) · [目录结构](#目录结构) · [赞助](#赞助与合作) · [更新记录](#更新记录)
+[这是什么](#-这是在解决什么问题) · [开工四项确认](#-开工前四项确认) · [四层模块](#-四层模块职责) · [核心能力](#-核心能力逐阶段) · [常用指令](#-常用指令) · [快速开始](#-快速开始) · [目录结构](#-目录结构) · [赞助](#-赞助与合作) · [更新记录](#-更新记录) · [English](#english)
 
 </div>
 
 ---
 
-## 什么是晓之意志
-
-一份**给 AI 助手执行的短剧 / 漫剧制作路由卡**。
-
-它本身不做创作。它是一张表，回答一个问题：
-
-> **收到这条指令，我该去读哪个文件的哪一节？**
-
-答案写死在卡上，不依赖 AI 的记忆，也不依赖你每次重新交代项目结构。
-
-<div align="center">
-<img src="assets/pipeline.svg" alt="路由示意：一条指令指向正确的文件与章节" width="96%" />
-</div>
-
----
-
-## 为什么需要它
+## 🎯 这是在解决什么问题
 
 带 AI 做过短剧的人，大概率都踩过这三个坑。
 
-**一、AI 不记得该读什么。**
-每次开工都要重新交代：资产包在哪、SOP 在哪、机位图叫什么、分镜表是第几版。这次交代完，下次换个会话又得重来。
+### 坑一：AI 不记得该读什么
 
-**二、两个文件冲突时，不知道该听谁。**
-总索引参数卡写 16:9，外部 skill 默认 9:16，那你到底按哪个做？没有仲裁规则，AI 就会自己挑一个。
+每次开工都要重新交代：资产包在哪、SOP 在哪、机位图叫什么、分镜表是第几版。这次交代完，下次换个会话又得重来。**AI 不是不聪明，是它手上没有地图。**
 
-**三、改了一处，下游全崩。**
-改了剧本台词，忘了回头同步分镜；改了分镜机位，忘了同步机位图。等到出图才发现全对不上。
+### 坑二：两个文件冲突时，不知道该听谁
 
-晓之意志用三样东西回答这三个问题：**一张路由表**、**一套仲裁优先级**、**一张改动联动表**。
+总索引参数卡写 16:9，外部 skill 默认 9:16，那你到底按哪个做？没有仲裁规则，AI 就会自己挑一个——而且不告诉你它挑了哪个。
+
+### 坑三：改了一处，下游全崩
+
+改了剧本台词，忘了回头同步分镜；改了分镜机位，忘了同步机位图。等到出图才发现全对不上，返工成本已经付出去了。
 
 ---
 
-## 工作方式
+**晓之意志用三样东西回答这三个问题：**
 
-### 六步固定响应流程
+| 回答 | 用什么 | 在哪 |
+|:---|:---|:---|
+| 该读什么 | **一张路由总表**：10 类指令 → 第一依据 / 必读捆绑（精确到节）/ 产出归位 | `SKILL.md` §四 |
+| 听谁的 | **一套仲裁优先级 ⑧ 条**：磁盘 > 记忆、本剧 `.md` > 外部 skill | `SKILL.md` §八 |
+| 回改谁 | **一张改动联动表**：6 类改动各自的下游同步链路 | `SKILL.md` §七 |
 
-每条制作指令进来，都按同一个顺序走：
+> 🔑 **核心立场**：**本卡不是读物，是路由。**
+> 不要凭对话记忆动手——对话记忆一律视为过期，一切以磁盘当前 `.md` 为准。
+
+> 📦 **本卡不持有你的剧**：它只带工作流与方法论骨架。角色 / 场景 / 道具 / 剧本 / 分镜，全部在你自己的项目目录里，由 `templates/` 里的 8 份空白模板起步。
+
+---
+
+## 🚦 开工前四项确认
+
+参考站用「六道前置锁」管住开工前的参数。我们是单技能路由卡，对应的是**四项确认**——任何一项没指定，**停下问，不许替用户推断**。
+
+| # | 确认项 | 选项 / 说明 | 未指定时 |
+|:--:|:---|:---|:---|
+| **①** | **本剧名与集号** | 写进项目总索引参数卡，它是全项目「本剧锁定值」唯一权威 | ⛔ 停下询问 |
+| **②** | **剧情源** | 原著 / 用户剧本的磁盘路径。剧情唯一来源，三库均不得供剧情 | ⛔ 停下询问 |
+| **③** | **画幅 + 出图 / 视频模型** | 如 16:9 + seedream 出图 / seedance 出视频 + 帧率 | ⛔ 停下询问，**禁止拿外部 skill 默认值填空** |
+| **④** | **本次产物类型** | 静态图 / 改图 / 视频 / 剧本 / 分镜 / 剪辑 / 质检 | 决定加载哪份方法论、走路由表哪一行 |
+
+> ⚠️ 这四项是**硬门，不是建议**。参考站的做法是「必须弹出让用户勾选」，我们沿用这个精神：**未指定 = 停工询问**，而不是默默用默认值往前跑。
+
+---
+
+## 🧩 四层模块职责
+
+参考站是「1 总控 + 12 子技能」的四层纵深。我们是**单技能 + 四层模块**——不是拆成 13 个目录，而是把职责在同一个包内分层，靠 `SKILL.md` 的路由把四层串起来。
+
+| 层 | 落在哪 | 职责 | 你什么时候会用到 |
+|:---:|:---|:---|:---|
+| **L0 路由层** | `SKILL.md` | 六步流程 · 路由总表 · 仲裁 ⑧ 条 · 改动联动 · 交付自检 · 开工四项确认 | 每次开工都读，是唯一入口 |
+| **L1 方法层** | `references/` | 8 份方法论要点：诺兰手法、A/B/C 三库、Seedance / SeedAudio 官方规则、剧情三不铁律、立项清单 | 第 2 步「方法论先行」按产物类型定向加载 |
+| **L2 原库层** | `external-libs/` | A/B/C 三库原库原文（130 个文件），要点不够时深挖 | 需要完整条文 / 细则时进这一层 |
+| **L3 执行层** | `templates/` + `scripts/` | 8 份空白项目模板 + 2 个本地脚本（建骨架 / 落盘模板） | 新剧立项、日常建文件 |
+
+**两层取用法**：先用 `references/09A–09E` 的**要点层**定位方向 → 需要完整条文再进 `external-libs/` 的**原库原文**。
+
+**三库分工一句话**：A 库（short-drama-director）**定流程门**、B 库（LIRA / CINEDANCE / ACTING）**定提示词写法**、C 库（洋子 10-Skill）**定工程组织与阶段门禁**。三库都**只补方法**，任何冲突按仲裁⑦回落到本项目磁盘 `.md`。
+
+---
+
+## 🔄 六步响应流程
+
+每条制作指令进来，都按同一个顺序走。
 
 | 步 | 动作 | 关键点 |
 |:---:|:---|:---|
-| **0** | 读磁盘最新稿 | 磁盘当前文件为准，对话记忆一律视为过期 |
+| **0** | **先 Read 磁盘最新稿** | 最高门禁：项目 `.md` 与外部 SKILL/references 都以磁盘当前文件为准，旧记忆 / 摘要一律过期 |
 | **1** | 解析指令 | 动作 ＋ 对象 ＋ 产物类型 |
-| **2** | 方法论先行 | 按产物类型，先读 `references/` 里命中的那一节 |
-| **3** | 读项目总索引 | 参数卡、最新状态、双编号、定稿门禁 |
-| **4** | 第一依据 ＋ 捆绑取齐到节 | 路由表第一依据、SOP、固定前缀逐字复制 |
-| **5** | 执行 · 双自检 · 归位 | SOP 核验 ＋ 方法论自检 ＋ 下游联动 ＋ 报你确认 |
+| **2** | **方法论先行** | 按产物类型先读 `references/` 命中章节；剧情类同步通读剧情源 |
+| **3** | 再读总索引 | 参数卡 · 最新状态 / 缺口 · 双编号 · 定稿门禁 |
+| **4** | **第一依据 ＋ 捆绑取齐到节** | 路由表第一依据 ＋ SOP ＋ 固定前缀**逐字复制** ＋ 上游 / 已锁资产 ＋ 机位图 |
+| **5** | 执行 · 双自检 · 归位 | SOP 核验 ＋ 方法论自检 ＋ 下游联动 ＋ 报用户确认 |
 
-> 顺序原则：**先图纸，后盖楼。** 方法论先于项目文件读取——先知道该怎么做，再去看这次要做什么。
+> **顺序原则：先图纸，后盖楼。**
+> 方法论先于项目文件读取——先知道「该怎么做、有哪些坑、查哪些维度」，再去看「这次要做什么、锁了什么」。方法论**只定向加载本次命中章节**，不全量通读。
 
-### 指令 → 文件 路由总表
+```
+📥 磁盘最新稿 → 🧩 解析指令 → 📚 方法论先行 → 📇 总索引 → 🎯 第一依据·捆绑到节 → ✅ 执行·双自检·归位
+```
 
-| 你要做的事 | 第一依据 | 必读捆绑 | 产出归位 |
+---
+
+## 📇 指令 → 文件 路由总表
+
+**第一依据**是执行的事实源，**必读捆绑**必须精确到「第几节」，**产出归位**决定文件落到哪。
+
+| 指令 | 第一依据 | 必读捆绑（精确到节） | 产出归位 |
 |:---|:---|:---|:---|
-| 生成**角色** | 角色包 · 该角色 x.1 | SOP；0.1–0.3 基底与负向；5.3 门禁；x.2–x.5 | `资产图片音频汇总/角色设定图/{角色}/` |
-| 生成**场景** | 场景包 · 该 S 分节 | 六视图 / 光影 / 空间锚点；机位图轴线 | `资产图片音频汇总/场景设计图/` |
-| 生成**道具** | 道具包 · 该 P 分节 | 六视图 / 材质 / 陈设；场景承托面 | `资产图片音频汇总/道具设计图/{道具}/` |
-| 生成**关键帧** | 10 字段分镜 · 该镜 | 分镜第四章连续性锚点；关键帧公式；机位图站位 | `资产图片音频汇总/关键帧/` |
-| 生成**视频片段** | 10 字段分镜 · 逐镜 | SOP 三；剪辑包闸门；P4 投喂六步 | `资产图片音频汇总/视频片段/` |
-| 改剧情 / 台词 / 人设 | 项目剧本包 | 本集剧本分场；剧情源原文 | 更新 `.md`，重生成 docx |
-| 切镜头 / 改机位 | 10 字段分镜 | 模板库 7.2–7.4；6.4 轴线 | 同步机位图 |
-| 剪辑 / 转场 / 配乐 | 剪辑资产包 | 剪辑包 7 九步 SOP；10 质检 | 母版出 16:9 |
-| 查原著依据 | 剧情源查章路由 | 剧情源结构地图 | — |
+| 生成**角色** | 角色包 · 该角色 x.1 设定图 | SOP；0.1 基底 / 0.2 负向 / 0.3 四张分图 / 5.3 门禁；x.2 表情 x.3 姿态 x.4 服装 x.5 锚点；剧本包人设；已锁基准脸 | `资产图片音频汇总/角色设定图/{角色}/` |
+| 生成**场景 / 空间** | 场景包 · 该 S 分节 | SOP；0.1–0.3 ＋ 该 S 的 -1 六视图 / -2 光影 / -3 空间锚点 / -4 粒子 / -5 陈设 ＋ 8.2 门禁；机位图 x.1 坐标 / x.3 轴线；10 字段分镜对应片段 | `资产图片音频汇总/场景设计图/` |
+| 生成**道具**特写 | 道具包 · 该 P 分节 | SOP；0.1–0.3 ＋ 该件 -1 六视图 / -2 光影 / -3 空间锚点 / -4 材质 / -5 陈设 ＋ 10.2 门禁；场景包承托面 | `资产图片音频汇总/道具设计图/{道具}/` |
+| 生成**关键帧** | 10 字段分镜 · 该镜 ＋ 对应资产包 | SOP 静态流水线；**分镜第四章连续性锚点（必继承）**；关键帧公式（角色 5.4 / 场景 8.3 / 道具 10.3）；模板库 2 / 3 / 5 / 6；机位图站位朝向 | `资产图片音频汇总/关键帧/` |
+| 生成**视频片段**（每段 ≤15s） | 10 字段分镜 · 逐镜 | SOP 三；剪辑包 G-PRE / G-NEG(1) V(2) R(3) T(4) BGM(5)；模板库 3.3 / 6.4；分镜第四章锚点；机位图 x.2 机位部署表 / x.3 轴线；关键帧 ＋ 三包（图生 ≤10） | `资产图片音频汇总/视频片段/` |
+| 改剧情 / 台词 / 人设 | 项目剧本包（最权威） | 本集剧本分场；剧情源原文；按改动联动表向下回改 | 更新 `.md` 重生成 docx |
+| 切镜头 / 改时间码 / 机位 | 10 字段分镜（★唯一依据） | 模板库 7.2 书写格式 / 7.3 切分 / 7.4 质检 / 6.4 轴线 | 同步机位图 x.2 与分镜第四章锚点 |
+| 剪辑 / 转场 / 配乐 / 调色 | 剪辑资产包 | 剪辑包 7 九步 SOP / 10 质检；10 字段分镜音效 / BGM / 衔接列 | 母版出 16:9，遮幅 / 竖裁后期再做 |
+| 查原著依据 / 核对剧本忠于剧情源 | 剧情源查章路由 | `00_参考索引`；剧情源结构地图（先定位第几章） | — |
 
-### 冲突仲裁优先级
+### 走一遍看看
 
-两个文件打架时，按这个顺序判：
+假设你说：**「生成主角的设定图」**
+
+```
+① 解析：动作=生成 · 对象=主角 · 产物类型=静态图
+② 方法论先行：读 references/09A 的 A 库流程门（Asset-First 六阶段）
+③ 读总索引：确认画幅 16:9、出图模型已锁定、该角色是否有缺口
+④ 取件：角色包「主角 x.1」＋ SOP 0.1 基底 / 0.2 负向 / 0.3 四张分图
+        ＋ 5.3 门禁 ＋ x.2~x.5 ＋ 剧本包人设 ＋ 已锁基准脸
+⑤ 执行：按 SOP 核验 → 方法论自检 → 回改总索引状态 → 报你确认
+   落盘：资产图片音频汇总/角色设定图/主角/
+```
+
+> 注意第 ④ 步：**没有读机位图**。因为这是纯角色白底单品图，不涉场景。一旦人物落进场景、两人同框，机位图立刻变成必读——这就是「四类必读时机」的判据。
+
+---
+
+## 🎥 机位图四类必读时机
+
+| 必读 | 为什么 |
+|:---|:---|
+| ① **场景六视图** | 朝向 / 画左画右 / 门窗家具灯具方位，以最新定稿六视图为准 |
+| ② **关键帧** | 角色站位、面朝、视线、画左画右 |
+| ③ **视频片段** | 引 CAM1~CAM4、守 180° 轴线、跳段衔接、同机位回环 |
+| ④ **道具放回场景 / 改镜头 / 剪辑** | 道具方位、机位方向、轴线连贯 |
+
+**不需读**：纯角色 / 纯道具的白底单品图（无场景、无第二者）。一旦人物落进场景、两人同框、或道具「放回环境」，立即回到必读四类。
+
+> **空间权威口径**：场景布局 / 画左画右 / 朝向 / 轴线，以**机位图最高**，并在机位图里逐字登记。
+
+---
+
+## 🖼️ 关键帧专用取件清单（跳三包，最易漏）
+
+| 来源 | 必须取哪些 |
+|:---|:---|
+| **分镜** | 该镜 10 字段 ＋ 第四章连续性锚点（造型 / 关键道具 / 光影母题 / 声音母题 / 构图 / 轴线，整张必继承） |
+| **角色关键帧** | 角色包 5.4 公式 ＋ 0.4 用法 ＋ x.6 专属基底 ＋ x.2~x.5；多人加 0.5 / 5.1 / 5.2 |
+| **场景关键帧** | 场景包 8.3 公式 ＋ 该 S 的 -2 光影 / -3 空间锚点 |
+| **道具关键帧** | 道具包 10.3 公式 ＋ 该件 -3 空间锚点 / -5 叙事陈设；10.4 边界登记防越界 |
+| **语法 / 空间** | 模板库 2 景别、3 运镜、5 光影、6 安全区与 6.4 轴线；机位图定站位朝向 |
+
+---
+
+## 🔗 改动联动表
+
+上游一改，下游必须同步。
+
+| 你改了什么 | 必须回头同步谁 |
+|:---|:---|
+| 剧本 / 台词 / 情节 | 10 字段分镜 →（涉站位机位）机位图 →（涉形象陈设）三包 → 情绪曲线量化 |
+| 分镜镜头号 / 机位 / 时长 | 机位图 x.2 部署表（逐条对照核准）、分镜第四章锚点、模板库 7.4 质检、受影响关键帧 / 视频 |
+| 场景坐标 / 轴线 / 陈设 | 机位图、场景包该 S、已出场景图与关键帧、道具包该件叙事陈设 |
+| 角色形象锚点 / 基准脸 | 重锁基准脸、角色包、已出设定图与关键帧（锁定后不轻易改） |
+| 固定前缀 / 负向 / 全局参数 | 以资产包原文 ＋ 总索引参数卡为准，回改 SOP，**不反向用 SOP 覆盖资产包** |
+| 任一 `.md` 改稿 / 重生成 `.docx` | 立即回填《项目总索引》该文件大小与最新状态，并重生成总索引 docx；**旧版保留不覆盖** |
+
+---
+
+## ⚖️ 冲突仲裁优先级
+
+两个文件打架时，按这个顺序判。
 
 | 序 | 规则 |
 |:---:|:---|
-| ⓪ | 磁盘当前 `.md` ＞ 对话记忆 / 摘要 |
+| ⓪ | 磁盘当前 `.md` ＞ 对话记忆 / 摘要（旧记忆视为过期） |
 | ① | `.md` ＞ `.docx` |
 | ② | 10 字段分镜 ＞ 基础分镜 |
-| ③ | 资产包原文 ＋ 参数卡 ＞ SOP / 路由卡 |
-| ④ | 双编号查总索引映射表 |
-| ⑤ | 最新拍板日期优先 |
-| ⑥ | 门禁不跳级；剧情对原著不增、不改、不删 |
-| ⑦ | **本剧 `.md` ＞ 外部 skill 方法论**（只补方法，不覆盖参数） |
-| ⑧ | 剧情源原文 ＞ 总纲 ＞ 分集大纲 / 剧本 / 分镜 |
+| ③ | 资产包原文 ＋ 总索引参数卡 ＞ SOP / 路由卡 |
+| ④ | 场景 / 资产双编号查总索引映射表（剧本场景号＝资产包场景号） |
+| ⑤ | 最新拍板日期优先（总索引第六章） |
+| ⑥ | 门禁不跳级；剧情对原著不添加 / 不更改 / 不删除 |
+| ⑦ | **本集 `.md` ＞ 外部 skill 方法论**（skill 只补方法不覆盖参数） |
+| ⑧ | **剧情源原文 ＞ 总纲 ＞ 分集大纲 / 剧本 / 分镜** |
 
-### 三条总纪律
+---
 
-| | 纪律 | 含义 |
+## 🔥 核心能力（逐阶段）
+
+| 阶段 | 能力 | 具体做什么 |
 |:---:|:---|:---|
-| ⓪ | 磁盘当前 `.md` ＞ 一切记忆 | 动手前必须读磁盘，不许凭印象 |
-| ⑦ | 本剧 `.md` ＞ 外部 skill | 外部默认值（9:16 / R2 高燃 / 21:9）不得覆盖你锁定的值 |
-| ⑧ | 剧情源 ＞ 总纲 ＞ 分集 | 剧情唯一来源是你的剧情源 |
+| 🧭 **立项** | 新剧立项清单 | 8 类必建文件 + 占位符替换总表，新剧第一次开工只做一次 |
+| 📇 **路由** | 指令 → 文件路由 | 10 类指令各自的第一依据、必读捆绑（精确到节）、产出归位 |
+| 🎬 **呈现** | 诺兰电影化手法基石 | 非线性时间、闪前闪回、交叉蒙太奇、片尾双钩、集首冷开场——**P0 立项级**，创作任何一集前必读 |
+| ✍️ **剧本** | A 库六阶段编剧链 | 来源登记 → IP 与角色开发 → 开发圣经 → 分集规划 → 正式剧本 → 圆桌审核 |
+| 📜 **剧情** | 三不铁律 + 改编白名单 | 不添加 / 不更改 / 不删除；有判定标准与统一边界 |
+| 🖼️ **资产** | Asset-First 资产包 | 角色资产板 / 场景空间图三件套 / 道具图；先锁定再进分镜 |
+| 🎥 **空间** | 机位图四类必读时机 | 哪四种必须读，哪两种可以跳过 |
+| 🎬 **分镜** | 10 字段分镜 + 连续性锚点 | 每一镜的字段定义与第四章锚点，保证跳镜不漂移 |
+| 🖼️ **关键帧** | 跳三包取件清单 | 分镜锚点 + 三包各自公式，一张清单取齐 |
+| 🚀 **投喂** | Seedance 2.5 七条铁律 | 三层解耦框架、标准投喂模板、P4 投喂六步序列过检 |
+| 🎵 **音频** | SeedAudio 1.0 官方约束 | T2A / A2A prompt 形态与硬约束 |
+| 🔗 **联动** | 改动联动表 | 6 类改动各自的下游回改链路 |
+| ⚖️ **仲裁** | 冲突仲裁 ⑧ 条 | 文件打架时有据可依，不靠 AI 自己挑 |
+| ✅ **自检** | 交付前防遗漏清单 | 逐项打勾，含高频翻车点 |
+| 📚 **三库** | A/B/C 三库路由 | A 定流程门、B 定提示词写法、C 定工程组织 |
 
 ---
 
-## 核心能力
+## 🧮 常用指令
 
-| 模块 | 它解决什么 |
-|:---|:---|
-| 📇 **路由总表** | 10 类指令各自的第一依据、必读捆绑（精确到节）、产出归位 |
-| 🎥 **机位图四类必读时机** | 哪四种情况必须读机位图，哪两种可以跳过 |
-| 🖼️ **关键帧跨三包取件清单** | 分镜连续性锚点 ＋ 三包各自公式，一张清单取齐，不易漏 |
-| 🔗 **改动联动表** | 上游一改，下游必须同步谁，逐条列出 |
-| ⚖️ **冲突仲裁 ⑧ 条** | 文件打架时有据可依 |
-| ✅ **交付前自检清单** | 逐项打勾，含「未用 skill 默认值覆盖本剧锁定值」这类高频翻车点 |
-| 🎬 **诺兰电影化手法基石** | 非线性、闪回、交叉蒙太奇、片尾双钩——P0 立项级必读 |
-| 📚 **A/B/C 三库路由** | A 库定流程门、B 库定提示词写法、C 库定工程组织 |
-| 🚀 **Seedance 2.5 / SeedAudio 1.0** | 七条铁律、三层解耦、T2A/A2A 投喂模板 |
-| 📜 **剧情三不铁律 ＋ 改编白名单** | 有判定标准与统一边界 |
+在对话里直接这样说，路由卡会自己走对应那一行：
 
----
+| 指令 | 对应路由 | 说明 |
+|:---|:---|:---|
+| `/新剧立项` | 第十一章 | 建项目骨架 + 替换全部占位符 |
+| `/角色` | 生成角色 | 读取角色包 x.1~x.5 与 SOP 门禁 |
+| `/场景` | 生成场景 | 读取场景包该 S 分节 + 机位图轴线 |
+| `/道具` | 生成道具 | 读取道具包该 P 分节 + 承托面 |
+| `/关键帧` | 生成关键帧 | 跳三包取件清单 |
+| `/视频` | 生成视频片段 | 10 字段分镜逐镜 + 投喂六步 |
+| `/改剧本` | 改剧情 / 台词 / 人设 | 剧情三不铁律核对 |
+| `/切镜头` | 切镜头 / 改机位 | 同步机位图与分镜锚点 |
+| `/剪辑` | 剪辑 / 转场 / 配乐 | 剪辑包九步 SOP |
+| `/查原著` | 查原著依据 | 剧情源查章路由 |
+| `/自检` | 交付前自检 | 逐项打勾防遗漏 |
+| `/路由` | 本表 | 问「这条指令该读哪些文件」 |
 
-## 适用场景
-
-- AI 短剧 / 漫剧 / 短视频剧集的日常生产
-- 需要出角色图 / 场景图 / 道具图，且要求跨镜跨集形象一致
-- 需要按 10 字段分镜表出关键帧与 Seedance 视频片段
-- 需要边写边核对原著（不添加 / 不更改 / 不删除）
-- 多人、或多个 AI 交替接手同一个项目
+> 这些是**触发词**，不是脚本命令。说中文原话也一样能触发，例如「按路由卡执行」「第 3 集开工」「这条指令该读哪些文件」。
 
 ---
 
-## 快速开始
+## ⚙️ 快速开始
 
 ### 1. 安装
 
-把 `xiaozhi-will` 整个文件夹复制到技能目录：
+把 `xiaozhi-will` 整个文件夹复制到技能目录，按你的平台选：
 
-| 系统 | 路径 |
-|---|---|
-| Windows | `C:\Users\<你的用户名>\.workbuddy\skills\xiaozhi-will\` |
-| macOS / Linux | `~/.workbuddy/skills/xiaozhi-will/` |
+| 平台 | 安装位置 |
+|:---|:---|
+| **WorkBuddy** | `C:\Users\<用户名>\.workbuddy\skills\xiaozhi-will\`（macOS / Linux：`~/.workbuddy/skills/xiaozhi-will/`） |
+| **OpenClaw** | `openclaw skills install ./xiaozhi-will --as xiaozhi-will` |
+| **Coze / Dify / 通用 LLM** | 把 `SKILL.md` 正文粘贴进系统提示词，`references/` 作为知识库上传 |
 
 复制后不需要重启、不需要配置。在对话里说「**按路由卡执行**」「**这条指令该读哪些文件**」「**第 N 集开工**」「**新剧立项**」即可触发。
 
@@ -158,25 +276,28 @@
 # 先看会建什么，不实际创建
 python scripts/new_project_scaffold.py "<项目根目录>" --season 第一季 --episode 第1集 --dry-run
 
-# 确认后真建（只新建缺失目录，绝不删除或覆盖已有文件）
+# 确认后真建（只新建缺失目录，绝不删除或覆盖任何已有文件）
 python scripts/new_project_scaffold.py "<项目根目录>" --season 第一季 --episode 第1集
 
 # 落盘 8 份模板并替换占位符（默认不覆盖已有文件）
 python scripts/init_project_docs.py "<项目根目录>" --season 第一季 --episode 第1集
 ```
 
-### 3. 替换占位符
+脚本实测：`new_project_scaffold.py` 建出 **21 个目录**，`init_project_docs.py` 落盘 **8 份模板**。
+
+### 3. 替换占位符 + 锁 P0 参数
 
 正文所有 `【方括号】` 都要换成本剧实际值，至少包括：
 
 `【新剧名】【第N集】【题材】【主角】【常驻角色】【剧情源文件】【项目根目录】【画幅】【出图模型】【视频模型】【帧率】【风格】`
 
-替换后写进**项目总索引参数卡**——它是全项目「本剧锁定值」的唯一权威。
+替换后写进**项目总索引参数卡**——它是全项目「本剧锁定值」的唯一权威，外部 skill 默认值不得覆盖（仲裁⑦）。
 
 ### 4. 给 AI 的最小执行序列
 
 ```
 读 SKILL.md
+  → 完成开工四项确认（剧名集号 / 剧情源 / 画幅模型 / 产物类型）
   → 查路由表：本次指令的第一依据是哪份文件
   → 方法论先行：按产物类型读 references/ 命中章节
   → 读项目总索引参数卡 ＋ 必读捆绑（精确到节）
@@ -186,13 +307,26 @@ python scripts/init_project_docs.py "<项目根目录>" --season 第一季 --epi
 
 ---
 
-## 目录结构
+## 🖥️ 适用平台与模型
+
+| | 支持 |
+|:---|:---|
+| **Agent 平台** | WorkBuddy · OpenClaw · 豆包智能体 / 扣子 (Coze) · Dify 及通用 LLM |
+| **视频 / 音频模型** | Seedance 2.5 · SeedAudio 1.0（官方投喂硬约束见 `09D`） |
+| **输出** | 结构化投喂提示词组 · 关键帧公式稿 · 资产提示词 · 项目模板 md · 项目目录骨架 |
+
+---
+
+## 📦 目录结构
 
 ```
 xiaozhi-will/
-├── README.md / LICENSE / .gitignore
-├── assets/                        横幅与插图
-└── xiaozhi-will/                  技能本体
+├── README.md                      本落地页（中文 + English）
+├── LICENSE / .gitignore
+├── assets/                        自绘 SVG 图（不依赖外链图床）
+│   ├── banner.svg                 横幅
+│   └── pipeline.svg               路由示意
+└── xiaozhi-will/                  技能本体（154 文件）
     ├── SKILL.md                   主入口：六步流程 / 路由总表 / 仲裁 / 自检
     ├── DISTRIBUTE.md              安装与前置条件
     ├── references/                8 份方法论 ＋ 索引 ＋ 原版 HTML 备份
@@ -204,8 +338,8 @@ xiaozhi-will/
     │   ├── 09E-yangzi-10skill-engineering.md  C 库：八阶段与门禁
     │   ├── 10-plot-source-iron-rules.md       剧情三不铁律 ＋ 改编白名单
     │   ├── 11-new-drama-bootstrap.md          立项清单 ＋ 占位符总表
-    │   └── route-card-full-source.html        原始 HTML 全量备份
-    ├── external-libs/             外部三库原库原文
+    │   └── route-card-full-source.html        原始 HTML 全量备份（172KB）
+    ├── external-libs/             外部三库原库原文（130 文件）
     │   ├── A-short-drama-director/   28 份规则库 ＋ 打戏子库
     │   ├── B-overseas-three-libs/    LIRA / CINEDANCE / ACTING 中文全本
     │   └── C-yangzi-10skill/         洋子 10-Skill 工程
@@ -213,26 +347,18 @@ xiaozhi-will/
     └── scripts/                   2 个本地脚本（均支持 --dry-run）
 ```
 
-**两层取用法**：先用 `references/09A–09E` 的要点层定位方向，需要完整条文再进 `external-libs/` 的原库原文。
-
 ---
 
-## 适用平台
-
-| | 支持 |
-|---|---|
-| **Agent 平台** | WorkBuddy · OpenClaw · 豆包智能体 / 扣子 (Coze) · Dify 及通用 LLM |
-| **视频 / 音频模型** | Seedance 2.5 · SeedAudio 1.0（官方投喂硬约束见 `09D`） |
-| **技能格式** | 标准 `SKILL.md` ＋ `references/` ＋ `scripts/` ＋ `templates/` |
-
----
-
-## 安全说明
+## 🛡️ 安全说明
 
 **本技能自带 2 个脚本**，均支持 `--dry-run`：
 
-- `scripts/new_project_scaffold.py` —— 只用 `os.makedirs` 新建目录，不删除 / 不移动 / 不覆盖 / 不联网 / 不读凭据。
-- `scripts/init_project_docs.py` —— 复制模板并替换占位符，**默认不覆盖已有文件**（需显式 `--force`）。
+| 脚本 | 行为 | 边界 |
+|:---|:---|:---|
+| `new_project_scaffold.py` | 只用 `os.makedirs` 新建目录 | 不删除 / 不移动 / 不覆盖 / 不联网 / 不读凭据 |
+| `init_project_docs.py` | 复制模板并替换占位符 | **默认不覆盖已有文件**（需显式 `--force`） |
+
+> 说明：`init_project_docs.py` 帮助文本标为「只新建，不覆盖」，但实际存在 `--force` 覆盖开关。**不加 `--force` 时行为与说明一致。**
 
 **`external-libs/` 内的第三方脚本不会被本技能执行**，仅作资料保留：
 
@@ -245,7 +371,7 @@ xiaozhi-will/
 
 ---
 
-## 赞助与合作
+## 🏆 赞助与合作
 
 <div align="center">
 
@@ -255,13 +381,14 @@ xiaozhi-will/
 
 ### 招商位
 
-| 席位 | 类型 | 说明 | 状态 |
+| 席位 | 适合谁 | 露出方式 | 状态 |
 |:---:|:---|:---|:---:|
-| 🥇 **主赞助** | 模型 / 算力 / API 平台 | 横幅位 ＋ README 顶部展示 ＋ 更新记录署名 | 虚位以待 |
-| 🥈 **合作赞助** | 创作工具 / 发行平台 / 课程 | 表格席位 ＋ 功能介绍 ＋ 外链 | 虚位以待 |
-| 🥉 **友情赞助** | 个人创作者 / 团队 | 名录致谢 | 虚位以待 |
+| 🥇 **主赞助** | AI 模型渠道 / 算力平台 / API 服务商 | README 顶部横幅位 ＋ 更新记录署名 ＋ 长期展示 | 虚位以待 |
+| 🥈 **合作赞助** | 创作工具 / 发行平台 / 课程 / 团队 | 本表格席位 ＋ 功能介绍 ＋ 外链 | 虚位以待 |
+| 🥉 **友情赞助** | 个人创作者 | 赞助者名录致谢 | 虚位以待 |
 
-> 合作范围：AI 模型渠道、算力平台、API 服务商、创作工具、发行平台、创作团队。
+> 💡 **招商说明**：赞助位对 AI 模型渠道、算力平台、API 服务商、创作工具、发行平台及创作团队开放。
+> 合作请联系：微信 **17344066178**
 
 ### 赞助者名录
 
@@ -271,47 +398,214 @@ xiaozhi-will/
 |:---|:---|:---|
 | *虚位以待* | — | — |
 
+*你的名字会出现在这里。*
+
 ### 联系我
 
 | 渠道 | 账号 |
 |:---|:---|
 | 📱 微信 | **17344066178** |
 | 🐙 GitHub | [@ax2697](https://github.com/ax2697) |
+| 💬 Issue | [提交问题或建议](https://github.com/ax2697/xiaozhi-will/issues) |
 
 ---
 
-## 更新记录
+## 📜 更新记录
 
-### v1.0.0 — 首发
+### v1.0.0 — 2026-10-22 · 首发
 
-- 以单技能形态发布：`SKILL.md` 路由主入口 ＋ 8 份方法论 references ＋ 8 份空白项目模板 ＋ 2 个本地脚本 ＋ A/B/C 三库原库原文，共 157 个文件。
-- 采用**路由卡**而非「1 总控 ＋ N 子技能」套装：执行事实源在**用户自己的项目磁盘**，拆成子技能会让每个子项无规则可依。
+**新增**
+
+- `SKILL.md`（19,049 字节）：六步响应流程、指令 → 文件路由总表（10 类指令）、机位图四类必读时机、关键帧跳三包取件清单、改动联动表、冲突仲裁 ⑧ 条、交付前自检清单、按需加载表、新剧第一次开工。
+- `references/` 8 份方法论：诺兰电影化手法全文（66KB）、A 库流程门、B 库三库要点、P0–P5 逐阶段详解、Seedance 2.5 / SeedAudio 1.0 官方规则、C 库工程组织、剧情三不铁律、新剧立项清单；另附原版 HTML 全量备份（172KB）。
+- `external-libs/` A/B/C 三库原库原文，共 130 个文件。
+- `templates/` 8 份空白项目模板：总索引参数卡、三资产包、10 字段分镜表、机位图、SOP、剧本三不核对表。
+- `scripts/` 2 个本地脚本：`new_project_scaffold.py`（建 21 个目录）、`init_project_docs.py`（落盘 8 份模板），均支持 `--dry-run`。
+- `assets/` 2 张自绘 SVG 图（横幅 + 路由示意），不依赖外链图床，永不失效。
+- README 中英双语落地页。
+
+**设计决策**
+
+- 采用**路由卡**而非「1 总控 + N 子技能」套装：执行事实源在**用户自己的项目磁盘**，拆成子技能会让每个子项无规则可依。
 - 技能 `name` 与安装路径统一为 `xiaozhi-will`。
+- 四层职责在单包内分层（路由 / 方法 / 原库 / 执行），靠 `SKILL.md` 串起，不拆目录。
+
+**验收**
+
+- 本地 159 文件 / 925,924 字节，远端 159 blob / 925,924 字节，逐文件比对零缺失。
+- 脚本实跑：建目录 21 个、落盘模板 8 份，`py_compile` 通过。
+- 全包检索旧名 `short-drama-route-card` 零残留。
 
 <details>
-<summary>版本路线图</summary>
+<summary><b>版本路线图</b></summary>
 
 - **v1.1** — 补充常见翻车案例库，把踩过的坑变成前置检查项
-- **v1.2** — 新增项目模板快速预览图
+- **v1.2** — 新增项目模板快速预览图、路由走查动画
+- **v1.3** — 补充英文版方法论摘要（`references/en/`）
 - **v2.0** — 视情况评估是否拆分独立子技能
 
 </details>
 
 ---
 
-## 来源与保真
+## 📄 来源与保真
 
 来源：《_AI指令文件路由卡_万能模板_新短剧用(1).html》——工作流 ＋ 方法论骨架，**已剥离任何单剧剧本内容**。
 
-原版 HTML 完整备份在 [`references/route-card-full-source.html`](xiaozhi-will/references/route-card-full-source.html)，需要按原始版式回看或核对是否漏转时直接读它。
+原版 HTML 完整备份在 [`references/route-card-full-source.html`](xiaozhi-will/references/route-card-full-source.html)，需要按原始版式回看、整体回抄，或核对是否漏转时直接读它。
 
 > 本仓库只分发**方法与模板**，不包含任何具体剧目的剧本、角色设定或分镜内容。
 
 ---
 
+# English
+
+<div align="right"><sub><a href="#-晓之意志--ai-短剧指令路由卡">↑ 回到中文 / Back to Chinese</a></sub></div>
+
+## What is Xiaozhi Will?
+
+**A routing card for AI assistants producing short-form drama.**
+
+It creates nothing on its own. It answers one question:
+
+> **"Given this instruction, which file — and which section of that file — should I read?"**
+
+The answer is written down, so it never depends on the model's memory or on you re-explaining your project structure every session.
+
+## Why it exists
+
+Anyone who has built short drama with AI has hit these three walls:
+
+**1. The AI doesn't know what to read.**
+Every session starts with re-explaining: where the asset packs are, where the SOP lives, which version of the storyboard is current.
+
+**2. When two files disagree, nobody knows which one wins.**
+Your parameter card says 16:9; a third-party skill defaults to 9:16. Without arbitration rules, the model silently picks one — and doesn't tell you which.
+
+**3. Change one thing, and everything downstream breaks.**
+You edit a line of dialogue but forget to update the storyboard. You move a camera but forget the camera plan. You only find out when the renders don't match.
+
+Xiaozhi Will answers these with **one routing table**, **one arbitration priority list**, and **one change-propagation table**.
+
+## Four checks before you start
+
+Any item left unspecified means **stop and ask** — never silently substitute a default.
+
+| # | Check | Notes |
+|:--:|:---|:---|
+| ① | Project name + episode | Written into the project's master index parameter card — the single source of truth for locked values |
+| ② | Story source | Path to the original novel or user script. The only legitimate source of plot |
+| ③ | Aspect ratio + image/video models | e.g. 16:9 + seedream for stills, seedance for video, plus frame rate |
+| ④ | Deliverable type | Still image / retouch / video / script / storyboard / edit / QC |
+
+## Four-layer module map
+
+Unlike multi-skill suites, this is **one skill with four internal layers**, wired together by `SKILL.md`:
+
+| Layer | Location | Responsibility |
+|:---:|:---|:---|
+| **L0 Routing** | `SKILL.md` | Six-step flow, routing table, 8 arbitration rules, change propagation, pre-delivery checklist |
+| **L1 Method** | `references/` | 8 methodology briefs: Nolan techniques, A/B/C libraries, Seedance / SeedAudio rules, plot integrity rules, project bootstrap |
+| **L2 Raw libraries** | `external-libs/` | 130 files of source material from the three libraries, for deeper reading |
+| **L3 Execution** | `templates/` + `scripts/` | 8 blank project templates and 2 local scripts |
+
+## Six-step response flow
+
+| Step | Action | Key point |
+|:---:|:---|:---|
+| **0** | Read the latest file from disk | Disk state always beats memory; summaries expire |
+| **1** | Parse the instruction | Action + object + deliverable type |
+| **2** | Method first | Load only the matching sections of `references/` |
+| **3** | Read the master index | Parameter card, status, dual numbering, locked version |
+| **4** | Collect the first authority + all bound sections | Copy fixed prefixes verbatim; pull upstream and locked assets |
+| **5** | Execute · self-check · file it back | SOP check + methodology check + downstream sync + report back |
+
+> **Drawings before construction.** Read the methodology before reading the project files — know *how* before knowing *what*.
+
+## Core capabilities
+
+| Area | What it does |
+|:---|:---|
+| 🧭 Bootstrap | 8 required project files + placeholder replacement table |
+| 📇 Routing | First authority, bound sections (to the exact section), and output destination for 10 instruction types |
+| 🎬 Cinematic language | Nolan techniques: non-linear time, flash-forwards, cross-cutting, double hooks — P0, read before any episode |
+| ✍️ Script | Six-stage writing chain from source registration to round-table review |
+| 📜 Plot integrity | Never add, never alter, never delete — with an explicit whitelist |
+| 🖼️ Asset-first | Lock characters, sets and props before they enter the storyboard |
+| 🎥 Spatial authority | Four cases where the camera plan is mandatory, two where it isn't |
+| 🎬 Storyboard | 10-field shot table with a continuity anchor carried across every shot |
+| 🖼️ Keyframes | One cross-pack checklist covering storyboard anchors and all three asset packs |
+| 🚀 Prompt feeding | Seedance 2.5 seven hard rules, three-layer decoupling, six-step feeding check |
+| 🎵 Audio | SeedAudio 1.0 T2A / A2A constraints |
+| 🔗 Propagation | Six change types and exactly what must be updated downstream |
+| ⚖️ Arbitration | Eight-level priority order when files disagree |
+| ✅ Self-check | Pre-delivery checklist, including "never let a skill default overwrite your locked value" |
+
+## Install
+
+Copy the whole `xiaozhi-will` folder into your skills directory:
+
+| Platform | Location |
+|:---|:---|
+| **WorkBuddy** | `C:\Users\<you>\.workbuddy\skills\xiaozhi-will\` (macOS / Linux: `~/.workbuddy/skills/xiaozhi-will/`) |
+| **OpenClaw** | `openclaw skills install ./xiaozhi-will --as xiaozhi-will` |
+| **Coze / Dify / any LLM** | Paste `SKILL.md` into the system prompt, upload `references/` as the knowledge base |
+
+Trigger it by saying things like *"follow the route card"*, *"which files should this instruction read?"*, *"start episode N"*, or *"new drama setup"*.
+
+## Quick start
+
+```bash
+# Dry run first — shows what would be created, changes nothing
+python scripts/new_project_scaffold.py "<project_root>" --season S1 --episode E1 --dry-run
+
+# Create the folder skeleton (21 directories, never deletes or overwrites)
+python scripts/new_project_scaffold.py "<project_root>" --season S1 --episode E1
+
+# Drop in the 8 templates and substitute placeholders (never overwrites by default)
+python scripts/init_project_docs.py "<project_root>" --season S1 --episode E1
+```
+
+## Three standing rules
+
+| | Rule | Meaning |
+|:---:|:---|:---|
+| ⓪ | **Disk beats memory** | Read the file before acting; never work from recall |
+| ⑦ | **This project's `.md` beats any external skill** | Third-party defaults (9:16, 21:9, "high-octane" presets) never override your locked values |
+| ⑧ | **Story source > master outline > episode outline / script / storyboard** | The plot has exactly one legitimate source |
+
+## Security
+
+Two bundled scripts, both supporting `--dry-run`:
+
+- `new_project_scaffold.py` — only calls `os.makedirs`. No deletion, no moves, no overwrites, no network, no credential access.
+- `init_project_docs.py` — copies templates and substitutes placeholders. **Never overwrites existing files** unless you pass `--force`.
+
+Third-party scripts inside `external-libs/` are **never executed by this skill**. They are kept for reference only. The eight installer scripts from the C library will write into `~/.codex/skills` — **read them before running**.
+
+## Sponsor
+
+This project is actively maintained. If your product helps short-drama creators, get in touch.
+
+| Tier | Best for | Visibility |
+|:---:|:---|:---|
+| 🥇 Main sponsor | Model providers, GPU/API platforms | Top banner + release notes credit |
+| 🥈 Partner | Creative tools, distribution, courses | Table slot + link |
+| 🥉 Supporter | Individual creators | Name in the sponsor list |
+
+Contact: WeChat **17344066178** · GitHub [@ax2697](https://github.com/ax2697)
+
+## Changelog · License
+
+See the Chinese 更新记录 section above for the full changelog.
+
+**[MIT](LICENSE)** — free to use, modify and redistribute.
+
+---
+
 <div align="center">
 
-**[MIT License](LICENSE)** · 用得好就点个 ⭐
+**[MIT License](LICENSE)** · 用得好就点个 ⭐ · Star it if it helps
 
 <sub>晓之意志 · 让 AI 先读对文件，再动手</sub>
 
