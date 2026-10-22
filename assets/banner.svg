@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-label="晓之意志 · AI 短剧指令路由卡">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0e14"/>
+      <stop offset="55%" stop-color="#111722"/>
+      <stop offset="100%" stop-color="#0a0d13"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#22d3ee" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="18%" cy="22%" r="42%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="84%" cy="76%" r="46%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="420" fill="url(#bg)"/>
+  <rect width="1200" height="420" fill="url(#grid)"/>
+  <rect width="1200" height="420" fill="url(#glow1)"/>
+  <rect width="1200" height="420" fill="url(#glow2)"/>
+
+  <!-- 胶片孔 -->
+  <g fill="#ffffff" fill-opacity="0.10">
+    <rect x="0" y="26" width="26" height="16" rx="3"/>
+    <rect x="0" y="86" width="26" height="16" rx="3"/>
+    <rect x="0" y="146" width="26" height="16" rx="3"/>
+    <rect x="0" y="206" width="26" height="16" rx="3"/>
+    <rect x="0" y="266" width="26" height="16" rx="3"/>
+    <rect x="0" y="326" width="26" height="16" rx="3"/>
+    <rect x="0" y="386" width="26" height="16" rx="3"/>
+    <rect x="1174" y="26" width="26" height="16" rx="3"/>
+    <rect x="1174" y="86" width="26" height="16" rx="3"/>
+    <rect x="1174" y="146" width="26" height="16" rx="3"/>
+    <rect x="1174" y="206" width="26" height="16" rx="3"/>
+    <rect x="1174" y="266" width="26" height="16" rx="3"/>
+    <rect x="1174" y="326" width="26" height="16" rx="3"/>
+    <rect x="1174" y="386" width="26" height="16" rx="3"/>
+  </g>
+
+  <!-- 左侧图标：路由分叉 -->
+  <g transform="translate(150,210)" stroke-linecap="round">
+    <circle r="74" fill="#22d3ee" fill-opacity="0.07" stroke="#22d3ee" stroke-opacity="0.30" stroke-width="1.5"/>
+    <circle r="46" fill="#0b0e14" stroke="#22d3ee" stroke-opacity="0.55" stroke-width="1.5"/>
+    <path d="M-20 26 L0 2 L20 26" fill="none" stroke="#22d3ee" stroke-width="2.4"/>
+    <path d="M0 2 L0 -24" fill="none" stroke="#f59e0b" stroke-width="2.4"/>
+    <circle cy="-30" r="5.5" fill="#f59e0b"/>
+    <circle cx="-24" cy="30" r="4" fill="#22d3ee"/>
+    <circle cx="24" cy="30" r="4" fill="#22d3ee"/>
+  </g>
+
+  <!-- 主标题 -->
+  <text x="272" y="176" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="58" font-weight="800" fill="#f5f7fa" letter-spacing="2">晓之意志</text>
+  <text x="274" y="216" font-family="'SF Pro Text','Segoe UI',Arial,sans-serif" font-size="17" font-weight="600" fill="#22d3ee" letter-spacing="4.5">XIAOZHI WILL · SHORT-DRAMA ROUTE CARD</text>
+
+  <rect x="272" y="238" width="188" height="3" rx="1.5" fill="url(#line)"/>
+
+  <text x="272" y="280" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="21" fill="#9aa7b8">让 AI 在动手之前，先读对文件、读对章节</text>
+
+  <!-- 管线节点 -->
+  <g transform="translate(272,320)" font-family="'SF Pro Text','Segoe UI',Arial,sans-serif" font-size="12.5">
+    <g>
+      <rect x="0" y="0" width="122" height="34" rx="17" fill="#22d3ee" fill-opacity="0.10" stroke="#22d3ee" stroke-opacity="0.40"/>
+      <text x="61" y="22" text-anchor="middle" fill="#8fe3ee">磁盘最新稿</text>
+    </g>
+    <g transform="translate(138,0)">
+      <rect x="0" y="0" width="104" height="34" rx="17" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.16"/>
+      <text x="52" y="22" text-anchor="middle" fill="#b9c4d2">解析指令</text>
+    </g>
+    <g transform="translate(258,0)">
+      <rect x="0" y="0" width="122" height="34" rx="17" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.16"/>
+      <text x="61" y="22" text-anchor="middle" fill="#b9c4d2">方法论先行</text>
+    </g>
+    <g transform="translate(396,0)">
+      <rect x="0" y="0" width="96" height="34" rx="17" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.16"/>
+      <text x="48" y="22" text-anchor="middle" fill="#b9c4d2">总索引</text>
+    </g>
+    <g transform="translate(508,0)">
+      <rect x="0" y="0" width="150" height="34" rx="17" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.16"/>
+      <text x="75" y="22" text-anchor="middle" fill="#b9c4d2">第一依据·捆绑到节</text>
+    </g>
+    <g transform="translate(674,0)">
+      <rect x="0" y="0" width="150" height="34" rx="17" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-opacity="0.45"/>
+      <text x="75" y="22" text-anchor="middle" fill="#f6c77a">执行·双自检·归位</text>
+    </g>
+  </g>
+
+  <!-- 右下角版本 -->
+  <text x="1128" y="392" text-anchor="end" font-family="'SF Pro Text','Segoe UI',Arial,sans-serif" font-size="13" fill="#5f6b7c">v1.0.0</text>
+</svg>
