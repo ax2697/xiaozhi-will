@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.jpg" alt="晓之意志 · AI 短剧指令路由卡" width="100%" />
+<img src="assets/banner.svg" alt="晓之意志 · AI 短剧指令路由卡" width="100%" />
 
 # 🧭 晓之意志 · AI 短剧指令路由卡
 
@@ -33,7 +33,7 @@
 答案写死在卡上，不依赖 AI 的记忆，也不依赖你每次重新交代项目结构。
 
 <div align="center">
-<img src="assets/pipeline.jpg" alt="六步响应管线" width="88%" />
+<img src="assets/pipeline.svg" alt="路由示意：一条指令指向正确的文件与章节" width="96%" />
 </div>
 
 ---
