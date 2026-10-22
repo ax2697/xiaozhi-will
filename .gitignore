@@ -12,7 +12,7 @@ desktop.ini
 .vscode/
 .idea/
 
-# 临时产物
+# 临时产物（交付物一律放桌面，不进仓库）
 _tmp/
 *.tmp
 *.log
