@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 300" width="1100" height="300" role="img" aria-label="路由示意：一条指令指向正确的文件与章节">
   <defs>
     <linearGradient id="b2" x1="0" y1="0" x2="1" y2="1">
@@ -18,21 +19,21 @@
   <!-- 左：指令 -->
   <g>
     <rect x="40" y="112" width="196" height="76" rx="14" fill="#22d3ee" fill-opacity="0.075" stroke="#22d3ee" stroke-opacity="0.38"/>
-    <text x="138" y="145" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="700" fill="#c9f2f8">收到一条指令</text>
-    <text x="138" y="170" text-anchor="middle" font-family="'SF Pro Text','Segoe UI',Arial,sans-serif" font-size="12.5" fill="#7f93a6">「生成角色 · 主角」</text>
+    <text x="138" y="145" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="16" font-weight="700" fill="#c9f2f8">收到一条指令</text>
+    <text x="138" y="170" text-anchor="middle" font-family="SF Pro Text,Segoe UI,Arial,sans-serif" font-size="12.5" fill="#7f93a6">「生成角色 · 主角」</text>
   </g>
 
   <!-- 箭头 -->
   <path d="M236 150 L330 150" stroke="url(#flow)" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="283" y="136" text-anchor="middle" font-family="'SF Pro Text','Segoe UI',Arial,sans-serif" font-size="11.5" fill="#5f6b7c">查表</text>
+  <text x="283" y="136" text-anchor="middle" font-family="SF Pro Text,Segoe UI,Arial,sans-serif" font-size="11.5" fill="#5f6b7c">查表</text>
 
   <!-- 中：路由表 -->
   <g>
     <rect x="336" y="52" width="300" height="196" rx="14" fill="#ffffff" fill-opacity="0.035" stroke="#ffffff" stroke-opacity="0.14"/>
-    <text x="356" y="82" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13.5" font-weight="700" fill="#dbe3ec">指令 → 文件 路由总表</text>
+    <text x="356" y="82" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="13.5" font-weight="700" fill="#dbe3ec">指令 → 文件 路由总表</text>
     <line x1="356" y1="94" x2="616" y2="94" stroke="#ffffff" stroke-opacity="0.12"/>
 
-    <g font-family="'SF Pro Text','Segoe UI',Arial,sans-serif" font-size="12">
+    <g font-family="SF Pro Text,Segoe UI,Arial,sans-serif" font-size="12">
       <rect x="352" y="106" width="268" height="26" rx="6" fill="#22d3ee" fill-opacity="0.10" stroke="#22d3ee" stroke-opacity="0.30"/>
       <text x="364" y="123" fill="#9fe6ef">生成角色　→　角色包 x.1</text>
 
@@ -45,15 +46,15 @@
 
   <!-- 箭头 -->
   <path d="M636 150 L730 150" stroke="url(#flow)" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="683" y="136" text-anchor="middle" font-family="'SF Pro Text','Segoe UI',Arial,sans-serif" font-size="11.5" fill="#5f6b7c">取到节</text>
+  <text x="683" y="136" text-anchor="middle" font-family="SF Pro Text,Segoe UI,Arial,sans-serif" font-size="11.5" fill="#5f6b7c">取到节</text>
 
   <!-- 右：命中文件 -->
   <g>
     <rect x="736" y="72" width="324" height="156" rx="14" fill="#f59e0b" fill-opacity="0.06" stroke="#f59e0b" stroke-opacity="0.35"/>
-    <text x="758" y="102" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13.5" font-weight="700" fill="#f6c77a">角色包 · 主角 x.1 设定图</text>
+    <text x="758" y="102" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="13.5" font-weight="700" fill="#f6c77a">角色包 · 主角 x.1 设定图</text>
     <line x1="758" y1="114" x2="1038" y2="114" stroke="#f59e0b" stroke-opacity="0.25"/>
 
-    <g font-family="'SF Pro Text','Segoe UI',Arial,sans-serif" font-size="12">
+    <g font-family="SF Pro Text,Segoe UI,Arial,sans-serif" font-size="12">
       <text x="758" y="140" fill="#c8b291">x.2 表情　x.3 姿态</text>
       <text x="758" y="164" fill="#c8b291">x.4 服装　x.5 锚点</text>
       <text x="758" y="188" fill="#8f8272">＋ SOP 0.1–0.3 · 5.3 门禁</text>
@@ -62,5 +63,5 @@
   </g>
 
   <!-- 底部注 -->
-  <text x="550" y="282" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12.5" fill="#4e5a6a">凭记忆动手＝过期　·　读磁盘、读对节＝可复现</text>
+  <text x="550" y="282" text-anchor="middle" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="12.5" fill="#4e5a6a">凭记忆动手＝过期　·　读磁盘、读对节＝可复现</text>
 </svg>
