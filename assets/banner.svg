@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-label="晓之意志 · AI 短剧指令路由卡">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -58,15 +59,15 @@
   </g>
 
   <!-- 主标题 -->
-  <text x="272" y="176" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="58" font-weight="800" fill="#f5f7fa" letter-spacing="2">晓之意志</text>
-  <text x="274" y="216" font-family="'SF Pro Text','Segoe UI',Arial,sans-serif" font-size="17" font-weight="600" fill="#22d3ee" letter-spacing="4.5">XIAOZHI WILL · SHORT-DRAMA ROUTE CARD</text>
+  <text x="272" y="176" font-family="PingFang SC,Microsoft YaHei,Noto Sans SC,sans-serif" font-size="58" font-weight="800" fill="#f5f7fa" letter-spacing="2">晓之意志</text>
+  <text x="274" y="216" font-family="SF Pro Text,Segoe UI,Arial,sans-serif" font-size="17" font-weight="600" fill="#22d3ee" letter-spacing="4.5">XIAOZHI WILL · SHORT-DRAMA ROUTE CARD</text>
 
   <rect x="272" y="238" width="188" height="3" rx="1.5" fill="url(#line)"/>
 
-  <text x="272" y="280" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="21" fill="#9aa7b8">让 AI 在动手之前，先读对文件、读对章节</text>
+  <text x="272" y="280" font-family="PingFang SC,Microsoft YaHei,Noto Sans SC,sans-serif" font-size="21" fill="#9aa7b8">让 AI 在动手之前，先读对文件、读对章节</text>
 
   <!-- 管线节点 -->
-  <g transform="translate(272,320)" font-family="'SF Pro Text','Segoe UI',Arial,sans-serif" font-size="12.5">
+  <g transform="translate(272,320)" font-family="SF Pro Text,Segoe UI,Arial,sans-serif" font-size="12.5">
     <g>
       <rect x="0" y="0" width="122" height="34" rx="17" fill="#22d3ee" fill-opacity="0.10" stroke="#22d3ee" stroke-opacity="0.40"/>
       <text x="61" y="22" text-anchor="middle" fill="#8fe3ee">磁盘最新稿</text>
@@ -94,5 +95,5 @@
   </g>
 
   <!-- 右下角版本 -->
-  <text x="1128" y="392" text-anchor="end" font-family="'SF Pro Text','Segoe UI',Arial,sans-serif" font-size="13" fill="#5f6b7c">v1.0.0</text>
+  <text x="1128" y="392" text-anchor="end" font-family="SF Pro Text,Segoe UI,Arial,sans-serif" font-size="13" fill="#5f6b7c">v1.0.0</text>
 </svg>
