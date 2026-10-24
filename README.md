@@ -254,6 +254,11 @@
 | 🔗 **联动** | 改动联动表 | 6 类改动各自的下游回改链路 |
 | ⚖️ **仲裁** | 冲突仲裁 ⑧ 条 | 文件打架时有据可依，不靠 AI 自己挑 |
 | ✅ **自检** | 交付前防遗漏清单 | 逐项打勾，含高频翻车点 |
+| ⚖️ **铁律** | 三条顶层铁律 | 留痕可逆 / 跑过才算 / 人认才算；违反任一条停下补做 |
+| 📋 **状态** | 唯一真相源骨架 | 70+ 字段参数卡（画幅/模型/字幕/BGM/白模/配额）+ P0–P5 阶段状态 |
+| 🔍 **门禁** | 剧本过检 95 分制 | 7 大项逐项签字，9 项评分任一 <95 不得提交 |
+| 🎭 **情绪** | 情绪关键帧库 | 4 模块（恐怖/动作/情感/爽感）+ 8 种情绪速查 |
+| ⏱️ **单元** | 30 秒分镜硬约束 | 时间码 0.0–30.0 连续校验，站位交接开关 |
 | 📚 **三库** | A/B/C 三库路由 | A 定流程门、B 定提示词写法、C 定工程组织 |
 
 ---
@@ -275,6 +280,10 @@
 | `/剪辑` | 剪辑 / 转场 / 配乐 | 剪辑包九步 SOP |
 | `/查原著` | 查原著依据 | 剧情源查章路由 |
 | `/自检` | 交付前自检 | 逐项打勾防遗漏 |
+| `/铁律` | 三条铁律 | 查当前该守的硬规则与执行六条 |
+| `/状态` | 项目状态 | 看 P0–P5 做到哪一步、缺口在哪里 |
+| `/过检` | 剧本过检 | 走 A5 清单，95 分制逐项签字 |
+| `/情绪库` | 情绪关键帧 | 读 A4 模块，按情绪取帧 |
 | `/路由` | 本表 | 问「这条指令该读哪些文件」 |
 
 > 这些是**触发词**，不是脚本命令。说中文原话也一样能触发，例如「按路由卡执行」「第 3 集开工」「这条指令该读哪些文件」。
@@ -449,7 +458,13 @@ xiaozhi-will/
 - `templates/A4-情绪关键帧库模板.md`（1,331 B）：4 情绪模块 + 8 种情绪速查（面部/肢体/光影）。
 - `templates/A5-剧本过检清单模板.md`（12,623 B）：P1 强制门禁，7 大项逐项签字 + 9 项 95 分制。
 - `SKILL.md` 新增「〇、三条铁律」章节，置于全部章节之首。
+- `SKILL.md` 新增「〇、三条铁律」章节，置于全部章节之首。
 - README 新增「三条铁律」中文段与英文段。
+- **核心能力表** 新增 6 行：铁律 / 状态 / 门禁 / 情绪 / 单元 / 三库。
+- **常用指令表** 新增 4 条：`/铁律` `/状态` `/过检` `/情绪库`。
+- **英文 Core capabilities** 同步扩充 6 行。
+- **目录结构** 区分 01–08 内容骨架与 A0–A5 工程纪律。
+- **横幅 SVG** 版本号 v1.0.0 → v1.1.0。
 
 **设计决策**
 
@@ -468,7 +483,7 @@ xiaozhi-will/
 - `SKILL.md`（19,049 字节）：六步响应流程、指令 → 文件路由总表（10 类指令）、机位图四类必读时机、关键帧跳三包取件清单、改动联动表、冲突仲裁 ⑧ 条、交付前自检清单、按需加载表、新剧第一次开工。
 - `references/` 8 份方法论：诺兰电影化手法全文（66KB）、A 库流程门、B 库三库要点、P0–P5 逐阶段详解、Seedance 2.5 / SeedAudio 1.0 官方规则、C 库工程组织、剧情三不铁律、新剧立项清单；另附原版 HTML 全量备份（172KB）。
 - `external-libs/` A/B/C 三库原库原文，共 130 个文件。
-- `templates/` 13 份空白项目模板（8 份内容 + 5 份工程 A0–A5）：总索引参数卡、三资产包、10 字段分镜表、机位图、SOP、剧本三不核对表。
+- `templates/` 8 份空白项目模板：总索引参数卡、三资产包、10 字段分镜表、机位图、SOP、剧本三不核对表。
 - `scripts/` 2 个本地脚本：`new_project_scaffold.py`（建 21 个目录）、`init_project_docs.py`（落盘 8 份模板），均支持 `--dry-run`。
 - `assets/` 2 张自绘 SVG 图（横幅 + 路由示意），不依赖外链图床，永不失效。
 - README 中英双语落地页。
@@ -609,7 +624,12 @@ Unlike multi-skill suites, this is **one skill with four internal layers**, wire
 | 🎵 Audio | SeedAudio 1.0 T2A / A2A constraints |
 | 🔗 Propagation | Six change types and exactly what must be updated downstream |
 | ⚖️ Arbitration | Eight-level priority order when files disagree |
-| ✅ Self-check | Pre-delivery checklist, including "never let a skill default overwrite your locked value" |
+| ⚖️ Iron laws | Three top-level laws: traceable & reversible, ran means passed, a human confirms |
+| 📋 Project state | Single-source-of-truth skeleton: 70+ parameter fields + P0–P5 stage status |
+| 🔍 Script gate | 7-section sign-off with a nine-item 95-point scale — any score below 95 blocks submission |
+| 🎭 Emotion keyframes | 4 modules (horror / action / emotion / catharsis) + 8 emotion quick-reference rows |
+| ⏱️ 30s unit | Fixed 30-second segment with continuous 0.0–30.0 timecode validation |
+| 📚 Three libraries | A for process gates, B for prompt writing, C for engineering structure |
 
 ## Install
 
