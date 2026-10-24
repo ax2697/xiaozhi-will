@@ -7,7 +7,7 @@
 
 ### Xiaozhi Will · Short-Drama Route Card
 
-**v1.0.0** · 中文 / English 双语
+**v1.1.0** · 中文 / English 双语
 
 > 一条「指令 → 文件」的存取约定。
 > 不生产内容，只负责让 AI 在动手之前，读对文件、读对章节。
@@ -15,9 +15,9 @@
 > *A routing convention between «instruction» and «file».*
 > *It produces no content — it only makes sure the AI reads the right file, at the right section, before it starts.*
 
-![Version](https://img.shields.io/badge/version-v1.0.0-6a5acd?style=flat-square)
-![Files](https://img.shields.io/badge/files-159-2ec4b6?style=flat-square)
-![Templates](https://img.shields.io/badge/templates-8-00b4d8?style=flat-square)
+![Version](https://img.shields.io/badge/version-v1.1.0-6a5acd?style=flat-square)
+![Files](https://img.shields.io/badge/files-165-2ec4b6?style=flat-square)
+![Templates](https://img.shields.io/badge/templates-13-00b4d8?style=flat-square)
 ![Libs](https://img.shields.io/badge/libs-A%2FB%2FC-8e44ad?style=flat-square)
 ![Models](https://img.shields.io/badge/models-Seedance%202.5%20%7C%20SeedAudio%201.0-9d4edd?style=flat-square)
 ![Platform](https://img.shields.io/badge/platform-WorkBuddy%20%7C%20OpenClaw%20%7C%20Coze%20%7C%20Dify-ff9f43?style=flat-square)
@@ -59,7 +59,32 @@
 > 🔑 **核心立场**：**本卡不是读物，是路由。**
 > 不要凭对话记忆动手——对话记忆一律视为过期，一切以磁盘当前 `.md` 为准。
 
-> 📦 **本卡不持有你的剧**：它只带工作流与方法论骨架。角色 / 场景 / 道具 / 剧本 / 分镜，全部在你自己的项目目录里，由 `templates/` 里的 8 份空白模板起步。
+> 📦 **本卡不持有你的剧**：它只带工作流与方法论骨架。角色 / 场景 / 道具 / 剧本 / 分镜，全部在你自己的项目目录里，由 `templates/` 里的 13 份空白模板起步。
+
+---
+
+## ⚖️ 三条铁律（v1.1.0 新增）
+
+**规则管不住 AI，铁律才管得住。** 这三条优先于本卡其余一切内容，违反任何一条都停下补做。
+
+| # | 铁律 | 一句话 | 怎么算做到 |
+|:--:|:---|:---|:---|
+| **1** | **留痕可逆** | 每次改动建 Git commit（白名单 add，禁 `git add .`），一步一提交 | 有 commit，能单独 revert |
+| **2** | **跑过才算** | 验收脚本跑绿，贴真实命令输出与退出码；失败修根因，禁改测试让它变绿 | 有输出、有退出码 |
+| **3** | **人认才算** | AI 不得自判合格。三级递进不得跳级：AI 自检 → AI 独立验证 → 你终审 | 三级都有回执 |
+
+### 由铁律展开的 AI 执行六条
+
+1. **先读再答** — 没读 `项目状态.md` 或本阶段点名的文件，不许回答
+2. **一问一停** — 一轮只推进一个确认点，禁止一趟跑完 P0→P5
+3. **不猜不默认** — 缺信息就停；假设标 `[假设]`＋后果，影响生成的升级为 `[待确认·阻塞]`
+4. **不重复失败 + 先采集后创作** — 同处连续 3 次停手回退；有参照物先实读并留书面拆解记录
+5. **状态明确 + 上下文治理** — 开工复述目标，跨会话先读记忆；临时产物入「AI工作区」；收尾三态 ✅/❌/🔄
+6. **找规则别通读 + 开工三问** — ① 我读制度了吗 ② 我建清单了吗 ③ 我复述状态了吗。任一为否，不许开工
+
+> 另守两条实操纪律：**唯一真相源**（只有 `项目状态.md`，不另建第二套记录）＋ **门禁不跳级**（上一阶段没验收不进下一阶段）。
+
+> 完整版见 [`templates/A0-铁律卡.md`](xiaozhi-will/templates/A0-铁律卡.md)。
 
 ---
 
@@ -87,7 +112,7 @@
 | **L0 路由层** | `SKILL.md` | 六步流程 · 路由总表 · 仲裁 ⑧ 条 · 改动联动 · 交付自检 · 开工四项确认 | 每次开工都读，是唯一入口 |
 | **L1 方法层** | `references/` | 8 份方法论要点：诺兰手法、A/B/C 三库、Seedance / SeedAudio 官方规则、剧情三不铁律、立项清单 | 第 2 步「方法论先行」按产物类型定向加载 |
 | **L2 原库层** | `external-libs/` | A/B/C 三库原库原文（130 个文件），要点不够时深挖 | 需要完整条文 / 细则时进这一层 |
-| **L3 执行层** | `templates/` + `scripts/` | 8 份空白项目模板 + 2 个本地脚本（建骨架 / 落盘模板） | 新剧立项、日常建文件 |
+| **L3 执行层** | `templates/` + `scripts/` | 13 份空白项目模板 + 2 个本地脚本（建骨架 / 落盘模板） | 新剧立项、日常建文件 |
 
 **两层取用法**：先用 `references/09A–09E` 的**要点层**定位方向 → 需要完整条文再进 `external-libs/` 的**原库原文**。
 
@@ -343,7 +368,9 @@ xiaozhi-will/
     │   ├── A-short-drama-director/   28 份规则库 ＋ 打戏子库
     │   ├── B-overseas-three-libs/    LIRA / CINEDANCE / ACTING 中文全本
     │   └── C-yangzi-10skill/         洋子 10-Skill 工程
-    ├── templates/                 8 份空白项目模板 ＋ 索引
+    ├── templates/                 13 份空白项目模板 ＋ 索引
+    │   ├── 01–08                  内容骨架（总索引 / 三资产包 / 分镜 / 机位图 / SOP / 剧本核对）
+    │   └── A0–A5                  工程纪律（铁律卡 / 项目状态 / 30秒分镜 / 情绪库 / 剧本过检）
     └── scripts/                   2 个本地脚本（均支持 --dry-run）
 ```
 
@@ -412,6 +439,28 @@ xiaozhi-will/
 
 ## 📜 更新记录
 
+### v1.1.0 — 2026-10-22 · 并入《晓之奥义》铁律体系
+
+**新增**
+
+- `templates/A0-铁律卡.md`（3,875 B）：三条顶层铁律 + AI 执行六条 + 各阶段最小必读集 + 交付前必跑三条命令。
+- `templates/A1-项目状态模板.md`（10,952 B）：**唯一真相源**骨架，70+ 字段参数卡 + P0–P5 阶段状态 + 回执。
+- `templates/A2-30秒分镜表模板.md`（1,550 B）：30 秒固定单元、10 字段、时间码 0.0–30.0 连续校验。
+- `templates/A4-情绪关键帧库模板.md`（1,331 B）：4 情绪模块 + 8 种情绪速查（面部/肢体/光影）。
+- `templates/A5-剧本过检清单模板.md`（12,623 B）：P1 强制门禁，7 大项逐项签字 + 9 项 95 分制。
+- `SKILL.md` 新增「〇、三条铁律」章节，置于全部章节之首。
+- README 新增「三条铁律」中文段与英文段。
+
+**设计决策**
+
+- **不设「免费版 / 会员版」档位**：全部能力并入单一技能 `xiaozhi-will`。
+- **A 系列用前缀隔离**：原 01–05 编号与仓内已有 01–08 冲突，改用 `A0`–`A5` 前缀。
+- **A1 与 01 分工**：`01-项目总索引` 管「剧是什么」；`A1-项目状态` 管「活干到哪」。
+
+**验收**
+
+- 模板 8 → 13 份，文件 159 → 165 个。
+
 ### v1.0.0 — 2026-10-22 · 首发
 
 **新增**
@@ -419,7 +468,7 @@ xiaozhi-will/
 - `SKILL.md`（19,049 字节）：六步响应流程、指令 → 文件路由总表（10 类指令）、机位图四类必读时机、关键帧跳三包取件清单、改动联动表、冲突仲裁 ⑧ 条、交付前自检清单、按需加载表、新剧第一次开工。
 - `references/` 8 份方法论：诺兰电影化手法全文（66KB）、A 库流程门、B 库三库要点、P0–P5 逐阶段详解、Seedance 2.5 / SeedAudio 1.0 官方规则、C 库工程组织、剧情三不铁律、新剧立项清单；另附原版 HTML 全量备份（172KB）。
 - `external-libs/` A/B/C 三库原库原文，共 130 个文件。
-- `templates/` 8 份空白项目模板：总索引参数卡、三资产包、10 字段分镜表、机位图、SOP、剧本三不核对表。
+- `templates/` 13 份空白项目模板（8 份内容 + 5 份工程 A0–A5）：总索引参数卡、三资产包、10 字段分镜表、机位图、SOP、剧本三不核对表。
 - `scripts/` 2 个本地脚本：`new_project_scaffold.py`（建 21 个目录）、`init_project_docs.py`（落盘 8 份模板），均支持 `--dry-run`。
 - `assets/` 2 张自绘 SVG 图（横幅 + 路由示意），不依赖外链图床，永不失效。
 - README 中英双语落地页。
@@ -487,6 +536,27 @@ You edit a line of dialogue but forget to update the storyboard. You move a came
 
 Xiaozhi Will answers these with **one routing table**, **one arbitration priority list**, and **one change-propagation table**.
 
+## Three iron laws
+
+**Rules do not constrain an AI. Iron laws do.** These three override everything else in this card. Break one and you stop and fix it first.
+
+| # | Law | What it means | How you know it is done |
+|:--:|:---|:---|:---|
+| **1** | **Traceable & reversible** | Every change gets a Git commit (explicit `git add <file>`, never `git add .`); one step, one commit | There is a commit, and it can be reverted alone |
+| **2** | **Ran means passed** | Verification scripts run green, with real command output and exit code pasted in; fix the root cause, never edit the test to make it green | Output, exit code, green |
+| **3** | **A human confirms** | The AI cannot self-certify. Three levels, never skipped: AI self-check → independent AI verification → your final review | All three have receipts |
+
+### Six execution rules derived from them
+
+1. **Read before answering** — no answer without reading `项目状态.md` or the files named for the current stage
+2. **One question, one stop** — advance one confirmation point per turn; never run P0→P5 in a single pass
+3. **Never guess, never default** — stop when information is missing; mark assumptions `[assumption]` with consequences
+4. **No repeat failures, gather before creating** — back off after three consecutive failures at the same spot
+5. **Explicit state, governed context** — restate the goal at kickoff, read memory files across sessions, keep temp artifacts in an AI workspace, close in one of three states ✅/❌/🔄
+6. **Find rules, do not read everything** — three kickoff questions: Did I read the rules? Did I build the checklist? Did I restate the state? Any no means do not start
+
+> Plus two practices: **single source of truth** (only `项目状态.md`, no second record) and **no gate skipping**.
+
 ## Four checks before you start
 
 Any item left unspecified means **stop and ask** — never silently substitute a default.
@@ -507,7 +577,7 @@ Unlike multi-skill suites, this is **one skill with four internal layers**, wire
 | **L0 Routing** | `SKILL.md` | Six-step flow, routing table, 8 arbitration rules, change propagation, pre-delivery checklist |
 | **L1 Method** | `references/` | 8 methodology briefs: Nolan techniques, A/B/C libraries, Seedance / SeedAudio rules, plot integrity rules, project bootstrap |
 | **L2 Raw libraries** | `external-libs/` | 130 files of source material from the three libraries, for deeper reading |
-| **L3 Execution** | `templates/` + `scripts/` | 8 blank project templates and 2 local scripts |
+| **L3 Execution** | `templates/` + `scripts/` | 13 blank project templates (8 content + 5 process A0–A5) and 2 local scripts |
 
 ## Six-step response flow
 
