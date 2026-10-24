@@ -1,7 +1,7 @@
 
 <div align="center">
 
-<img src="assets/banner.svg" alt="晓之意志 · AI 短剧指令路由卡 / Xiaozhi Will · Short-Drama Route Card" width="100%" />
+<img src="assets/banner.svg?v=2" alt="晓之意志 · AI 短剧指令路由卡 / Xiaozhi Will · Short-Drama Route Card" width="1200" />
 
 # 🧭 晓之意志 · AI 短剧指令路由卡
 
