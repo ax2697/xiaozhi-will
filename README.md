@@ -7,7 +7,7 @@
 
 ### Xiaozhi Will · Short-Drama Route Card
 
-**v2.1.0** · 中文 / English 双语
+**v2.2.0** · 中文 / English 双语
 
 > 一条「指令 → 文件」的存取约定。
 > 不生产内容，只负责让 AI 在动手之前，读对文件、读对章节。
@@ -15,9 +15,9 @@
 > *A routing convention between «instruction» and «file».*
 > *It produces no content — it only makes sure the AI reads the right file, at the right section, before it starts.*
 
-![Version](https://img.shields.io/badge/version-v2.1.0-6a5acd?style=flat-square)
-![Files](https://img.shields.io/badge/files-166-2ec4b6?style=flat-square)
-![Templates](https://img.shields.io/badge/templates-13-00b4d8?style=flat-square)
+![Version](https://img.shields.io/badge/version-v2.2.0-6a5acd?style=flat-square)
+![Files](https://img.shields.io/badge/files-172-2ec4b6?style=flat-square)
+![Templates](https://img.shields.io/badge/templates-15-00b4d8?style=flat-square)
 ![Libs](https://img.shields.io/badge/libs-A%2FB%2FC-8e44ad?style=flat-square)
 ![Models](https://img.shields.io/badge/models-Seedance%202.5%20%7C%20SeedAudio%201.0-9d4edd?style=flat-square)
 ![Platform](https://img.shields.io/badge/platform-WorkBuddy%20%7C%20OpenClaw%20%7C%20Coze%20%7C%20Dify-ff9f43?style=flat-square)
@@ -402,7 +402,11 @@
 | 🎭 **情绪** | 情绪关键帧库 | **三阶·炼精 · 三关·形**：4 模块（恐怖/动作/情感/爽感）+ 8 种情绪速查 |
 | ⏱️ **单元** | 30 秒分镜硬约束 | **四阶·炼气 · 四关·序**：时间码 0.0–30.0 连续校验，站位交接开关 |
 | 📚 **三库** | A/B/C 三库路由 | 全阶：A 定流程门、B 定提示词写法、C 定工程组织 |
-| ☯️ **体系** | 道教体系总纲 | 全阶：道生万物 / 三丹田 / 五行三关 / 精气神三宝；出问题先定位在第几阶 |
+| 🎭 **表演** | Master Acting Profile | **三阶·炼精**：常驻角色 150–220 词行为说明书（八块结构）+ Voice 声学参数，让角色不是念台词机器 |
+| 🔖 **锚点** | @CHR/@SCN/@PRP 编码 | **一阶·立鼎**：三包统一主键，名字会变码不变，断链从源头杜绝 |
+| 🔐 **六把锁** | CINEDANCE 六锁英文短句 | **五阶·炼神**：首帧占用 / 空间调度 / 视线分离 / 地标邻近 / 多镜连续 / 上下文隔离，填空即用 |
+| 🎨 **调色** | 60/30/10 调色板 | **三阶·炼精**：每场景一套色配比 + 光影四要素 + 全剧五色系收敛 |
+| ☯️ **体系** | 道教体系总纲 | 全阶：道生万物 / 三丹田 / 五行六关 / 精气神三宝；出问题先定位在第几阶 |
 
 ---
 
@@ -508,7 +512,7 @@ xiaozhi-will/
 └── xiaozhi-will/                  技能本体（154 文件）
     ├── SKILL.md                   主入口：六步流程 / 路由总表 / 仲裁 / 自检
     ├── DISTRIBUTE.md              安装与前置条件
-    ├── references/                9 份方法论 ＋ 索引 ＋ 原版 HTML 备份
+    ├── references/                13 份方法论 ＋ 索引 ＋ 原版 HTML 备份
     │   ├── 08-nolan-cinematic.md              诺兰电影化手法全文（P0 基石，66KB）
     │   ├── 09A-domestic-gate-lib.md           A 库：Asset-First 六阶段 / 三铁律
     │   ├── 09B-overseas-three-libs.md         B 库：LIRA / CINEDANCE / ACTING
@@ -518,13 +522,17 @@ xiaozhi-will/
     │   ├── 10-plot-source-iron-rules.md       剧情三不铁律 ＋ 改编白名单
     │   ├── 11-new-drama-bootstrap.md          立项清单 ＋ 占位符总表
     │   ├── 12-daoxue-cosmology.md             **道教体系全文**（道生万物 / 三丹田 / 五行 / 三宝）
+    │   ├── 13-acting-master-profile.md        **表演说明书**：八块结构 + 两套范例 + 15 种坏表演反查
+    │   ├── 14-anchor-coding.md                **资产锚点编码**：@CHR/@SCN/@PRP 格式与分配规则
+    │   ├── 15-cinedance-six-locks.md          **六把锁英文短句**：填空模板 + FOV° 六档 + 20 问 QA
+    │   ├── 16-lighting-palette.md             **调色与光影**：60/30/10 + 全剧五色系 + 三条禁则
     │   └── route-card-full-source.html        原始 HTML 全量备份（172KB）
     ├── external-libs/             外部三库原库原文（130 文件）
     │   ├── A-short-drama-director/   28 份规则库 ＋ 打戏子库
     │   ├── B-overseas-three-libs/    LIRA / CINEDANCE / ACTING 中文全本
     │   └── C-yangzi-10skill/         洋子 10-Skill 工程
-    ├── templates/                 13 份空白项目模板 ＋ 索引
-    │   ├── 01–08                  内容骨架（总索引 / 三资产包 / 分镜 / 机位图 / SOP / 剧本核对）
+    ├── templates/                 15 份空白项目模板 ＋ 索引
+    │   ├── 01–10                  内容骨架（总索引 / 三资产包 / 分镜 / 机位图 / SOP / 剧本核对 / MasterProfile / 场景锁定）
     │   └── A0–A5                  工程纪律（铁律卡 / 项目状态 / 30秒分镜 / 情绪库 / 剧本过检）
     └── scripts/                   2 个本地脚本（均支持 --dry-run）
 ```
@@ -593,6 +601,32 @@ xiaozhi-will/
 ---
 
 ## 📜 更新记录
+
+### v2.2.0 — 2026-10-26 · 补齐原始内容缺口（四项内容库 + 两份模板）
+
+**依据**：原始路由卡 9.10.6 有一张「文字内容对照检查总表」，自己列了 8 个文件缺哪些章节、按三档排了优先级。这张表从 v1.0.0 起就存在，但一直标着「待用户拍板」，**从没实现**。本次按它补齐第一梯队全部三项 + 第二梯队一项。
+
+**新增内容库**
+
+- `references/13-acting-master-profile.md`（**第一梯队 ①**）：Master Acting Profile 八块结构（身体传记 / 心理引擎 / 声音 / 带触发 tic / 命名步态 / However when X 裂缝 / 唯一柔软对象 / 眼活）+ 两套完整英文范例 + Voice 六参数格式 + 15 种坏表演反查表。解决「角色是念台词机器」。
+- `references/14-anchor-coding.md`（**第一梯队 ②**）：@CHR/@SCN/@PRP 编码体系。原卡问题写得很直白——「分镜表有 @CHR/@SCN/@PRP 但三包本身还无统一编码」，即**引用方有码，被引用方没有**。本文件定义格式、分配规则（永不复用 / 不改号 / 预留 90+）、三包写法、状态标记四档、投喂时码与图分离原则。
+- `references/15-cinedance-six-locks.md`（**第一梯队 ③**）：六把锁填空模板（首帧占用 / 空间调度 / 视线-朝向分离 / 地标邻近 / 多镜连续性 / 上下文隔离），每把给一段可复制英文短句 + 弱词黑名单（near→within 1 meter）+ FOV° 六档对照与防漂移短语 + 硬切六式 + 20 问静默 QA。
+- `references/16-lighting-palette.md`（**第二梯队 ④**）：60/30/10 调色板（主导 / 辅助 / 点缀）+ 全剧五色系收敛建议 + 光影四要素 + 三条禁则（禁平光美容光 / 禁暗部压死 / 禁多光源无主次）+ 出图后一致性检查清单。
+
+**新增模板**
+
+- `templates/09-角色MasterProfile卡 模板.md`：中文八块设定 + 英文 150–220 词段 + Voice 一行 + 自查 + 使用记录。
+- `templates/10-场景16项锁定与六把锁 模板.md`：16 项锁定表（标注三项易变）+ 六把锁英文填空 + 60/30/10 表 + 光影四要素 + FOV° 机位对照。
+
+**设计说明**
+
+- **为什么先补这三项**：原卡自己标的「第一梯队（高优先，直接影响 P4 出片质量）」。三项都指向同一件事——**P4 投喂时手上没有可直接复制的文字资产**，每次都得临场想，想到什么程度看运气。
+- **为什么不补第五项**：第三梯队（LIRA 式 Location 模板改写 / 配角完整版）原卡标低优先且「取决于戏份」，等实际需要再补。
+- **内容库而非模板堆砌**：13–16 四份都是「给了就能用」的填空结构，不是方法论再讲一遍。15 和 16 直接给可复制英文，因为 P4 要的就是能粘进 Prompt 的东西。
+
+**验收**
+
+- references 9 → 13 份；templates 13 → 15 份；文件 166 → 172 个。
 
 ### v2.1.0 — 2026-10-26 · 补齐道教体系缺失
 
