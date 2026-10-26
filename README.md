@@ -7,7 +7,7 @@
 
 ### Xiaozhi Will · Short-Drama Route Card
 
-**v2.3.0** · 中文 / English 双语
+**v2.4.0** · 中文 / English 双语
 
 > 一条「指令 → 文件」的存取约定。
 > 不生产内容，只负责让 AI 在动手之前，读对文件、读对章节。
@@ -15,7 +15,7 @@
 > *A routing convention between «instruction» and «file».*
 > *It produces no content — it only makes sure the AI reads the right file, at the right section, before it starts.*
 
-![Version](https://img.shields.io/badge/version-v2.3.0-6a5acd?style=flat-square)
+![Version](https://img.shields.io/badge/version-v2.4.0-6a5acd?style=flat-square)
 ![Files](https://img.shields.io/badge/files-397-2ec4b6?style=flat-square)
 ![Templates](https://img.shields.io/badge/templates-17-00b4d8?style=flat-square)
 ![Libs](https://img.shields.io/badge/libs-A%2FB%2FC%2FD-8e44ad?style=flat-square)
@@ -637,6 +637,46 @@ xiaozhi-will/
 ---
 
 ## 📜 更新记录
+
+### v2.4.0 — 2026-10-26 · 判据三轮加固
+
+**变更**
+
+- `references/23` §六：阶段验收表 P1–P5 补「**怎么验**」列（六个阶段各给执行动作）
+- `references/24`：**资产红线 9 条**从单列「红线」扩为「红线 + **怎么判**（命中即违规）」
+- `references/26`：「三句落地判据」补「**违规**」列，三句各给可指认的违规情形
+
+**为什么**
+
+二轮扫的时候判据表已经覆盖了，但**表格合不合规 ≠ 判据能不能用**。这轮看内容，发现三类"看着像判据、其实不能用"：
+
+| 类型 | 例子 | 问题 |
+|:---|:---|:---|
+| **只有名词，没有判法** | 资产红线「方向一致」 | 什么和什么一致？差多少算不一致？ |
+| **只有检查项，没有动作** | 验收表「图有无」 | 怎么看？看文件夹还是数文件？ |
+| **只有口号，没有违规** | 「道法自然」 | 做到了什么样，没做到什么样？ |
+
+**改法举例**
+
+| 原文 | 现在 |
+|:---|:---|
+| 「图有无」 | **数**每个资产目录下 `.png` 个数（**不是看有没有文件夹**——空目录最容易被当成"已有"） |
+| 「方向一致」 | 同一场景所有图的**主光方向**与场景包的**光源方向字段**不符 → 违规 |
+| 「道法自然」 | 为了爽点让角色**做出违背前文人设**的选择，且没给转变铺垫 → 违规 |
+| 「无为」 | 用户没说的参数（画幅/时长/比例/风格），AI **自己填了默认值** → 违规 |
+
+**设计决策**
+
+- **红线要能"指着文件说违规"**：不能指认的红线只是提醒，提醒会被忽略。
+- **验收动作要防"看起来做了"**：P2 特意写「数 .png 个数不是看文件夹」，因为空目录是最常见的假完成。
+- **哲学口号必须落成违规判据**：道法自然/无为/反者道之动三句，各给一条"命中即没做到"，否则永远正确、永远无用。
+
+**验收**
+
+- 23 号 6 阶段全部有「怎么验」
+- 24 号 9 条红线全部有「怎么判」
+- 26 号 3 句全部有「违规」列
+- 剩余扫描告警 4 处经人工核实均属正常（判据本身可核验，是词匹配误报）
 
 ### v2.3.0 — 2026-10-26 · 判据二轮加固
 
