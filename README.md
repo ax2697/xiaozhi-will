@@ -7,7 +7,7 @@
 
 ### Xiaozhi Will · Short-Drama Route Card
 
-**v3.0.0** · 中文 / English 双语
+**v4.0.0** · 中文 / English 双语
 
 > 一条「指令 → 文件」的存取约定。
 > 不生产内容，只负责让 AI 在动手之前，读对文件、读对章节。
@@ -15,8 +15,8 @@
 > *A routing convention between «instruction» and «file».*
 > *It produces no content — it only makes sure the AI reads the right file, at the right section, before it starts.*
 
-![Version](https://img.shields.io/badge/version-v3.0.0-6a5acd?style=flat-square)
-![Files](https://img.shields.io/badge/files-392-2ec4b6?style=flat-square)
+![Version](https://img.shields.io/badge/version-v4.0.0-6a5acd?style=flat-square)
+![Files](https://img.shields.io/badge/files-396-2ec4b6?style=flat-square)
 ![Templates](https://img.shields.io/badge/templates-17-00b4d8?style=flat-square)
 ![Libs](https://img.shields.io/badge/libs-A%2FB%2FC%2FD-8e44ad?style=flat-square)
 ![Models](https://img.shields.io/badge/models-Seedance%202.5%20%7C%20SeedAudio%201.0-9d4edd?style=flat-square)
@@ -418,6 +418,11 @@
 | 🌏 **易地** | 出海换皮存神 | **二阶·采药**：换一层文化皮，内核一点不动；台词 ≤10 词 |
 | 📝 **立骨** | 剧本四骨 | **二阶·采药**：开篇三式钩子 / 冲突见证链 / 反转三格 / 卡点三式 |
 | 🥋 **炼形** | 打戏十一环 | **五阶·炼神**：力从腰起不在手，十一环缺一环力就断 |
+| 🪶 **画符** | 投喂七段六闸 | **五阶·炼神**：七段是符的七位，六闸是画符六手续——格式错一个字整段返工 |
+| 🔬 **九转** | 机检 C1~C33 | **六阶·还虚**：M/S/H 三类分开验，不得互相冒充；FAIL 清零才交付 |
+| 🧪 **三单** | 资产三单提取 | **三阶·炼精**：角色 4 格 / 道具 4 格 / 场景 9 格，格数写死不许第 5 格第 10 格 |
+| 📜 **六候** | 剧本六阶段 | **二阶·采药**：一候来源登记 → 六候五席圆桌，候候有门禁 |
+| 🗣️ **台词** | 自然化与七维诊断 | **二阶·采药**：单句 ≤24 字，遮挡名认不出谁说的就是不合格 |
 | ☯️ **体系** | 道教体系总纲 | 全阶：道生万物 / 三丹田 / 五行六关 / 精气神三宝；出问题先定位在第几阶 |
 
 ---
@@ -524,7 +529,7 @@ xiaozhi-will/
 └── xiaozhi-will/                  技能本体（154 文件）
     ├── SKILL.md                   主入口：六步流程 / 路由总表 / 仲裁 / 自检
     ├── DISTRIBUTE.md              安装与前置条件
-    ├── references/                18 份方法论 ＋ 索引 ＋ 原版 HTML 备份
+    ├── references/                22 份方法论 ＋ 索引 ＋ 原版 HTML 备份
     │   ├── 08-nolan-cinematic.md              诺兰电影化手法全文（P0 基石，66KB）
     │   ├── 09A-domestic-gate-lib.md           A 库：Asset-First 六阶段 / 三铁律
     │   ├── 09B-overseas-three-libs.md         B 库：LIRA / CINEDANCE / ACTING
@@ -543,6 +548,10 @@ xiaozhi-will/
     │   ├── 19-dandao-mechanisms.md             **丹道五机**：锚形 / 调息 / 交济 / 还债 / 易地
     │   ├── 20-dandao-screenplay.md             **炼己筑基**：立骨 / 聚气 / 洗药（剧本结构与钩子）
     │   ├── 21-dandao-combat.md                 **炼形**：十一环动力链 / 打击三件套 / 三套物理
+    │   ├── 22-dandao-feeding.md                **画符**：七段式 / 六道闸门 / 工程语言清洗
+    │   ├── 23-dandao-qc.md                     **九转**：C1~C33 · H1~H12 / 三本账 / 转场门
+    │   ├── 24-dandao-asset.md                  **三单**：角色 4 格 / 道具 4 格 / 场景 9 格 / 群像卡
+    │   ├── 25-dandao-script.md                 **六候**：剧本六阶段 / 五席圆桌 / 台词七维 / 语速硬指标
     │   └── route-card-full-source.html        原始 HTML 全量备份（172KB）
     ├── external-libs/             外部四库原库原文（342 文件）
     │   ├── A-short-drama-director/   28 份规则库 ＋ 打戏子库
@@ -619,6 +628,33 @@ xiaozhi-will/
 ---
 
 ## 📜 更新记录
+
+### v4.0.0 — 2026-10-26 · 老李全套内容道教化完成
+
+**至此 19–25 七份改写文档覆盖老李 12 引擎的全部领域。** 不再是"归位映射"，是**每一块内容都用道教逻辑重写了一遍**。
+
+**本轮新增四份**
+
+| 文件 | 覆盖老李哪块 | 道教化框架 | 核心内容 |
+|:---|:---|:---|:---|
+| `22-dandao-feeding.md` | sd-feed-engine + 总控投喂清单 | **画符**：符的七位 / 画符六手续 | 七段式逐段纪律；六道闸门逐条判据；工程语言清洗（必删/必转/必删抽象词/必删理论废话）；字数时长镜头配额全套硬指标 |
+| `23-dandao-qc.md` | sd-qc-engine（74KB 机检手册） | **九转还丹**：转转为验 | C 系八大组（C1~C33）、H 系 12 条（H1~H12）、三本账、转场门七类禁切、M/S/H 三分验收表 |
+| `24-dandao-asset.md` | sd-asset-engine | **炼精化气**：精不凝气不成形 | 三单提取（原文三级优先 / 人物场分离）；角色 4 格（单一面部锚点 / 禁砍头）；道具 4 格；场景 9 格（机位表匹配）；群像卡 GRP-N；四条贯穿纪律 |
+| `25-dandao-script.md` | sd-script-engine（250KB） | **采药六候**：候候不到药不真 | 六阶段产出与门禁；五席圆桌（十维权重 / 六硬门 / S-A-B 等级 / 防捧杀四律）；台词自然化（禁用虚词 / 三测试 / 四法）；诊断七维；语速四档与 6 字/秒基准 |
+
+**关键改写（不是贴标签）**
+
+| 原文机制 | 道教改写 | 改写后多出来的东西 |
+|:---|:---|:---|
+| 七段式提示词格式 | **符的七位**（符头/符身/符心/符骨/符脉/符音/符脚） | 把"格式要求"变成"符不成法不灵"——**格式错一个字整段返工** |
+| 机检 C1~C33 | **九转还丹，转转为验** | 推出 M/S/H 三分不可冒充——跑完脚本全绿只是 M 过，S 和 H 一题没答 |
+| 三单提取 | **分药**（精不凝，气不成形） | 三单没做就出图必错；不是"先出图再补设定"，是"先分药再起火" |
+| 剧本六阶段 | **采药六候** | 候是验不是手续——少验一候，后面全虚 |
+| 台词自然化 | **洗药去毒** | 不去毒，补药变毒药 |
+
+**验收**
+
+- references 18 → 22 份；总文件 392 → 396 个。
 
 ### v3.0.0 — 2026-10-26 · 内容真正道教化（不是挂映射）
 
