@@ -7,7 +7,7 @@
 
 ### Xiaozhi Will · Short-Drama Route Card
 
-**v2.0.0** · 中文 / English 双语
+**v2.1.0** · 中文 / English 双语
 
 > 一条「指令 → 文件」的存取约定。
 > 不生产内容，只负责让 AI 在动手之前，读对文件、读对章节。
@@ -15,7 +15,7 @@
 > *A routing convention between «instruction» and «file».*
 > *It produces no content — it only makes sure the AI reads the right file, at the right section, before it starts.*
 
-![Version](https://img.shields.io/badge/version-v2.0.0-6a5acd?style=flat-square)
+![Version](https://img.shields.io/badge/version-v2.1.0-6a5acd?style=flat-square)
 ![Files](https://img.shields.io/badge/files-397-2ec4b6?style=flat-square)
 ![Templates](https://img.shields.io/badge/templates-17-00b4d8?style=flat-square)
 ![Libs](https://img.shields.io/badge/libs-A%2FB%2FC%2FD-8e44ad?style=flat-square)
@@ -637,6 +637,44 @@ xiaozhi-will/
 ---
 
 ## 📜 更新记录
+
+### v2.1.0 — 2026-10-26 · 明确「用户感知」的定义
+
+**变更**
+
+- `AGENTS.md` 新增「一之二 · 『用户感知』的可执行定义」（本机总纲，不上传）
+- `开发状态.md` §〇 速查表同步三条判据 + 决策树 + 四个真实例子
+
+**为什么**
+
+v2.0.0 定规则时只写了「用户能感知的变化才升版本」，但「感知」这个词太模糊——可以解释成任何东西。结果就是规则写了，却判不了。这次把它拆成三条**可验证**的判据。
+
+**三条判据**
+
+| # | 判据 | 一句话检验 |
+|:--:|:---|:---|
+| 一 | **看得见** | 路径层面有增删改，或实质内容变了（>1KB） |
+| 二 | **用得上** | 能写出「用户原本会 X，现在会 Y」且 X≠Y |
+| 三 | **修得上** | P0 阻断/P1 误导 → 升；P2 瑕疵/P3 内部 → 不升，攒着 |
+
+命中任一条 = 感知得到 → 升版本。三条都不命中 → 不升。
+
+**判据二 是最硬的一条**：判据一可以靠"文件动了"蒙混，判据三只覆盖修复。判据二要求写出一句具体的「原本 X → 现在 Y」，写不出来就是没感知。
+
+**反例复盘**
+
+规则里附了这次 v2.0.0→5.0.0 七次升版的逐条复盘：3 次该升、3 次不该升（都属于"同一批任务的收尾"）、1 次该直接跳主号而非堆到 5。
+
+**设计决策**
+
+- **不写"重要程度"**：重要与否是主观的，写进规则就没法判。只写"能不能验证"。
+- **判据三按 P0–P3 分级**：修复型变更最容易滥升（"我修了 bug 所以升版本"），必须区分"用户踩不踩得到"。
+- **附反例而非只写正例**：规则要能防住具体犯过的错，抽象的正面教导没用。
+
+**验收**
+
+- 四处版本号一致（台账 frontmatter / 台账正文 / SKILL / README 标题 + badge）
+- 判据在 AGENTS.md 与开发状态.md 两处表述一致
 
 ### v2.0.0 — 2026-10-26 · 立道教体系
 
