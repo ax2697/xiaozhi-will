@@ -292,7 +292,7 @@ its jib crossing the upper-left third of frame.
 
 | 机 | 原文文件 |
 |:--|:---|
-| 一 · 锚形 | `legacy-v5/manju-laoli-v5.0/references/短剧工业化参考/短剧全链路工业化深度规程.md` 秘钥一 |
+| 一 · 锚形 | `external-libs/D-laoli-suite/legacy-v5/manju-laoli-v5.0/references/短剧工业化参考/短剧全链路工业化深度规程.md` 秘钥一 |
 | 二 · 调息 | 同上 秘钥二 |
 | 三 · 交济 | 同上 秘钥三 |
 | 四 · 还债 | 同上 秘钥四 |

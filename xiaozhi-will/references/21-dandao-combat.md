@@ -237,9 +237,9 @@
 
 | 内容 | 原文文件 |
 |:---|:---|
-| 15 格 PREVIS + 11 环动力链 | `legacy-v5/.../武打PREVIS-15格动作预演系统.md` |
-| 武学招式库 | `legacy-v5/.../武学招式库-经典招式速查.md` |
-| 二次元打戏 | `legacy-v5/.../二次元打戏提示词体系.md` |
+| 15 格 PREVIS + 11 环动力链 | `external-libs/D-laoli-suite/legacy-v5/manju-laoli-v5.0/references/武打PREVIS-15格动作预演系统.md` |
+| 武学招式库 | `external-libs/D-laoli-suite/legacy-v5/manju-laoli-v5.0/references/武学招式库-经典招式速查.md` |
+| 二次元打戏 | `external-libs/D-laoli-suite/legacy-v5/manju-laoli-v5.0/references/二次元打戏提示词体系.md` |
 | 打戏引擎（V7.4.26） | `D-laoli-suite/sd-combat-engine/`（铁律 69KB + 招式库 81KB） |
 | 写实武打（V7.4.26） | `D-laoli-suite/sd-real-engine/`（运动链 11 环） |
 | 玄幻战斗（V7.4.26） | `D-laoli-suite/sd-xuanhuan-engine/`（兵器参数库 36KB） |

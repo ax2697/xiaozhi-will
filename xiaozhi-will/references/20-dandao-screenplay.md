@@ -291,12 +291,12 @@
 
 | 内容 | 原文文件 |
 |:---|:---|
-| 钩子 / 冲突 / 反转 / 卡点模板 | `legacy-v5/.../短剧核心爽点与结构模板.md` |
-| 60/90 秒篇幅 | `legacy-v5/.../短剧60秒与90秒剧本篇幅对比.md` |
-| 庸俗 vs 升级 | `legacy-v5/.../剧本庸俗与爆款深度升级对照.md` |
-| 多分支互动 | `legacy-v5/.../多分支互动剧写作格式与示范.md` |
-| 合规避坑 | `legacy-v5/.../短剧合规避坑与敏感情节替换方案.md` |
-| 人物塑造 | `legacy-v5/.../短剧标准化人物塑造模板.md` |
-| 分集大纲 | `legacy-v5/.../短剧大纲双模式写作标准.md` |
+| 钩子 / 冲突 / 反转 / 卡点模板 | `external-libs/D-laoli-suite/legacy-v5/manju-laoli-v5.0/references/短剧工业化参考/短剧核心爽点与结构模板.md` |
+| 60/90 秒篇幅 | `external-libs/D-laoli-suite/legacy-v5/manju-laoli-v5.0/references/短剧工业化参考/短剧60秒与90秒剧本篇幅对比.md` |
+| 庸俗 vs 升级 | `external-libs/D-laoli-suite/legacy-v5/manju-laoli-v5.0/references/短剧工业化参考/剧本庸俗与爆款深度升级对照.md` |
+| 多分支互动 | `external-libs/D-laoli-suite/legacy-v5/manju-laoli-v5.0/references/短剧工业化参考/多分支互动剧写作格式与示范.md` |
+| 合规避坑 | `external-libs/D-laoli-suite/legacy-v5/manju-laoli-v5.0/references/短剧工业化参考/短剧合规避坑与敏感情节替换方案.md` |
+| 人物塑造 | `external-libs/D-laoli-suite/legacy-v5/manju-laoli-v5.0/references/短剧工业化参考/短剧标准化人物塑造模板.md` |
+| 分集大纲 | `external-libs/D-laoli-suite/legacy-v5/manju-laoli-v5.0/references/短剧工业化参考/短剧大纲双模式写作标准.md` |
 
 > 原文 MIT 授权，完整保留。需要原始案例与示范时直接读原文。
