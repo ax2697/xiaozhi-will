@@ -184,7 +184,7 @@
 我在炼气阶，分镜选型没依据
 → 查表：sd-decision-engine
 → 读：external-libs/D-laoli-suite/sd-decision-engine/SKILL.md
-→ 细则：references/context-mapping.md（E01~E15）
+→ 细则：external-libs/D-laoli-suite/sd-decision-engine/references/context-mapping.md（E01~E15）
 ```
 
 ---

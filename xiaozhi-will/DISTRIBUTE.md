@@ -65,9 +65,9 @@ python scripts/new_project_scaffold.py "<项目根目录>" --season 第一季 --
 |---|---|---|---|
 | A 库 short-drama-director（28 份规则库 ＋ 打戏子库，303KB） | ✅ 完整 | `external-libs/A-short-drama-director\` | 打开 `references\09A` 的 9.2 表 → 按文件名取 |
 | B 库 LIRA / CINEDANCE / ACTING（中文全本，87KB） | ✅ 完整 | `external-libs/B-overseas-three-libs\` | 三份全本，可直接通读 |
-| C 库 洋子 10-Skill 工程 V3（91 文件 / 101KB） | ⚠ **索引骨架版** | `external-libs/C-yangzi-10skill\` | 结构、总控、目录映射齐全；10 个 Skill 的正文 `references/source.md` 等**缺失**。缺细则时先翻 B 库，覆盖度更高 |
+| C 库 洋子 10-Skill 工程 V3（91 文件 / 101KB） | ⚠ **索引骨架版** | `external-libs/C-yangzi-10skill\` | 结构、总控、目录映射齐全；10 个 Skill 的正文 `external-libs/C-yangzi-10skill/00-先看这里.md` 等**缺失**。缺细则时先翻 B 库，覆盖度更高 |
 
-C 库的骨架版说明：每个 Skill 的 `references\` 里只有 `_索引.md` + `skill.md` 两份**目录说明**，被它们描述的正文（如 `film-cinedance/references/source.md` 38KB）不在包内。若你从洋子原厂拿到 V3 完整 ZIP，把 `source.md`、`continuity-compiler.md`、`h3-prompt-format.md`、`shot-planning.md` 等覆盖进对应 `skills\<name>\references\` 即可升级为全本，本索引无需改动。
+C 库的骨架版说明：每个 Skill 的 `references\` 里只有 `_索引.md` + `skill.md` 两份**目录说明**，被它们描述的正文（如 `film-cinedance/external-libs/C-yangzi-10skill/00-先看这里.md` 38KB）不在包内。若你从洋子原厂拿到 V3 完整 ZIP，把 `source.md`、`continuity-compiler.md`、`h3-prompt-format.md`、`shot-planning.md` 等覆盖进对应 `skills\<name>\references\` 即可升级为全本，本索引无需改动。
 
 取用分两层：**先读 `references/09A–09E` 的要点定位方向**，需要完整条文/细则再进 `external-libs/` 的原库（详见 `external-libs/README.md`，内有"要解决什么→打开哪份"对照表）。
 
