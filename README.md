@@ -7,7 +7,7 @@
 
 ### Xiaozhi Will · Short-Drama Route Card
 
-**v2.3.0** · 中文 / English 双语
+**v3.0.0** · 中文 / English 双语
 
 > 一条「指令 → 文件」的存取约定。
 > 不生产内容，只负责让 AI 在动手之前，读对文件、读对章节。
@@ -15,9 +15,9 @@
 > *A routing convention between «instruction» and «file».*
 > *It produces no content — it only makes sure the AI reads the right file, at the right section, before it starts.*
 
-![Version](https://img.shields.io/badge/version-v2.3.0-6a5acd?style=flat-square)
-![Files](https://img.shields.io/badge/files-345-2ec4b6?style=flat-square)
-![Templates](https://img.shields.io/badge/templates-15-00b4d8?style=flat-square)
+![Version](https://img.shields.io/badge/version-v3.0.0-6a5acd?style=flat-square)
+![Files](https://img.shields.io/badge/files-392-2ec4b6?style=flat-square)
+![Templates](https://img.shields.io/badge/templates-17-00b4d8?style=flat-square)
 ![Libs](https://img.shields.io/badge/libs-A%2FB%2FC%2FD-8e44ad?style=flat-square)
 ![Models](https://img.shields.io/badge/models-Seedance%202.5%20%7C%20SeedAudio%201.0-9d4edd?style=flat-square)
 ![Platform](https://img.shields.io/badge/platform-WorkBuddy%20%7C%20OpenClaw%20%7C%20Coze%20%7C%20Dify-ff9f43?style=flat-square)
@@ -411,6 +411,13 @@
 | 🔍 **采风** | 对标情报卡 | **一阶·立鼎**：对标爆款的公开信息采集 + 十三项字段 + 六条证据纪律 |
 | 🥋 **打戏** | 三套打戏引擎 | **五阶·炼神**：写实 / 玄幻 / 漫剧打斗是三套物理，不是一套 |
 | 🔧 **机检** | C1~C33 + H1~H12 | **六阶·还虚**：把"看着行"变成逐条可判定（74KB 手册） |
+| ⚓ **锚形** | 视觉资产对账单 | **三阶·炼精**：每场景定穴 + 每镜挂锚 + 覆率 100%——九成崩坏的源头 |
+| 🫁 **调息** | 声音三段呼吸 | **六阶·还虚**：蓄息 → 屏息（≤0.8s）→ 吐息，屏息那半秒最贵 |
+| ☯️ **交济** | 双轨错峰排期 | **二阶·采药**：爽点与甜点永不同集到顶——水火既济，轮流旺 |
+| 💰 **还债** | 承负账本 | **二阶·采药**：打脸能量 ≥ 2 × 憋屈时长 × 见证人数，利息必须给足 |
+| 🌏 **易地** | 出海换皮存神 | **二阶·采药**：换一层文化皮，内核一点不动；台词 ≤10 词 |
+| 📝 **立骨** | 剧本四骨 | **二阶·采药**：开篇三式钩子 / 冲突见证链 / 反转三格 / 卡点三式 |
+| 🥋 **炼形** | 打戏十一环 | **五阶·炼神**：力从腰起不在手，十一环缺一环力就断 |
 | ☯️ **体系** | 道教体系总纲 | 全阶：道生万物 / 三丹田 / 五行六关 / 精气神三宝；出问题先定位在第几阶 |
 
 ---
@@ -517,7 +524,7 @@ xiaozhi-will/
 └── xiaozhi-will/                  技能本体（154 文件）
     ├── SKILL.md                   主入口：六步流程 / 路由总表 / 仲裁 / 自检
     ├── DISTRIBUTE.md              安装与前置条件
-    ├── references/                15 份方法论 ＋ 索引 ＋ 原版 HTML 备份
+    ├── references/                18 份方法论 ＋ 索引 ＋ 原版 HTML 备份
     │   ├── 08-nolan-cinematic.md              诺兰电影化手法全文（P0 基石，66KB）
     │   ├── 09A-domestic-gate-lib.md           A 库：Asset-First 六阶段 / 三铁律
     │   ├── 09B-overseas-three-libs.md         B 库：LIRA / CINEDANCE / ACTING
@@ -533,13 +540,16 @@ xiaozhi-will/
     │   ├── 16-lighting-palette.md             **调色与光影**：60/30/10 + 全剧五色系 + 三条禁则
     │   ├── 17-laoli-engines-map.md              **老李 12 引擎 · 道教六阶归位图**
     │   ├── 18-decision-engine.md               **炼气阶选型依据**：E01~E15 + 80/15/5 + 雷区双态
+    │   ├── 19-dandao-mechanisms.md             **丹道五机**：锚形 / 调息 / 交济 / 还债 / 易地
+    │   ├── 20-dandao-screenplay.md             **炼己筑基**：立骨 / 聚气 / 洗药（剧本结构与钩子）
+    │   ├── 21-dandao-combat.md                 **炼形**：十一环动力链 / 打击三件套 / 三套物理
     │   └── route-card-full-source.html        原始 HTML 全量备份（172KB）
-    ├── external-libs/             外部四库原库原文（301 文件）
+    ├── external-libs/             外部四库原库原文（342 文件）
     │   ├── A-short-drama-director/   28 份规则库 ＋ 打戏子库
     │   ├── B-overseas-three-libs/    LIRA / CINEDANCE / ACTING 中文全本
     │   ├── C-yangzi-10skill/         洋子 10-Skill 工程
-    │   └── D-laoli-suite/            **漫剧老李 V7.4.26 全套**：1 总控 + 12 引擎（MIT）
-    ├── templates/                 15 份空白项目模板 ＋ 索引
+    │   └── D-laoli-suite/            **漫剧老李全套**：V7.4.26 十二引擎 + V5.0.2 legacy 39 份（MIT）
+    ├── templates/                 17 份空白项目模板 ＋ 索引
     │   ├── 01–10                  内容骨架（总索引 / 三资产包 / 分镜 / 机位图 / SOP / 剧本核对 / MasterProfile / 场景锁定）
     │   └── A0–A5                  工程纪律（铁律卡 / 项目状态 / 30秒分镜 / 情绪库 / 剧本过检）
     └── scripts/                   2 个本地脚本（均支持 --dry-run）
@@ -609,6 +619,48 @@ xiaozhi-will/
 ---
 
 ## 📜 更新记录
+
+### v3.0.0 — 2026-10-26 · 内容真正道教化（不是挂映射）
+
+**这次做了什么**：前几版只是把老李的引擎"归位"到六阶，内容还是他的原话。这一版**把这些机制本身用道教的因果结构重写了一遍**。
+
+**三份改写文档**
+
+| 文件 | 原内容 | 道教化改写 |
+|:---|:---|:---|
+| `19-dandao-mechanisms.md` | 行业五大秘钥（视觉对账 / 声音三段 / 双轨错峰 / 情绪杠杆 / 出海转译） | **丹道五机**：锚形（立地脉·以显代藏）、调息（蓄息·屏息·吐息）、交济（水火既济·抽添）、还债（承负·借证还三算）、易地（移栽·换皮存神） |
+| `20-dandao-screenplay.md` | 钩子 / 冲突 / 反转 / 卡点模板库 | **炼己四步**：立骨（一阳初动·借势·逆则成丹·留一线）、聚气（阴阳相济）、洗药（洗药去毒） |
+| `21-dandao-combat.md` | 15 格 PREVIS + 11 环动力链 | **炼形**：周天（十一环即力之周天）、顿（打击三件套）、三才各有所属（三套物理）、先画符后行法（白模）、界（轴线边界） |
+
+**关键改写示例**
+
+| 原文说法 | 道教改写 |
+|:---|:---|
+| 「地标在，观众就忽略脸部漂移」 | **「以显代藏」**——不是修脸，是转移注意力。道家的"藏"不是掩盖，是以显代藏 |
+| 「A/B 双线峰值不能同集重叠」 | **「水火既济」**——不是两条线都拉满，是轮流满。丹道叫「抽添」：抽一处盈，补一处亏 |
+| 「憋屈越久，打脸越爽」（公式） | **「承负」**——今日欠，来日还；欠得越久，利息越重。三算：借（秒）/ 证（人数）/ 还（排面） |
+| 「打脸不够狠，是前面欠得不够」 | **「精亏了不补，丹必败」** |
+| 「力从腰起，不从手起」 | **「炁行周天」**——路径断了，周天不成 |
+| 「接触瞬间停 1–2 帧」 | **「顿」**——一刹那的停，比连续更真 |
+| 「出海要换文化锚」 | **「移栽」**——土不同法不同，但苗还是那棵苗；**换皮存神** |
+
+**新增模板**
+
+- `templates/11-视觉资产对账单 模板.md`：定穴 / 挂锚 / 覆率审计 / 放行签字（形关判据落地）
+- `templates/12-双轨节奏排期表 模板.md`：A/B 张力刻度 + 重叠判定 + 承负账本 + 全剧体检
+
+**新增原文**
+
+- 导入老李 **legacy V5.0.2** 的 39 份工业化文档到 `external-libs/D-laoli-suite/legacy-v5/`。这批是新仓库 V7.4.26 **没有**的：剧本范例、合规避坑、爽点模板、人物塑造、产能标准、60/90 秒对比、多分支互动剧等。
+
+**关于洋子**
+
+洋子的 71 SKILL 正文在飞书文档里，但实际文件托管在**迅雷 / 夸克网盘**（需登录），无法直接抓取。我们已有的 C 库是索引骨架版（仅 4 份实质文件）。
+→ **需要完整版**：从网盘下载后放入 `external-libs/C-yangzi-10skill/` 覆盖同名目录即可，索引无需改。
+
+**验收**
+
+- references 15 → 18 份；templates 15 → 17 份；external-libs 301 → 342 文件；总文件 345 → 388 个。
 
 ### v2.3.0 — 2026-10-26 · 并入漫剧老李套装（道教化归位）
 
