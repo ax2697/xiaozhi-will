@@ -7,7 +7,7 @@
 
 ### Xiaozhi Will · Short-Drama Route Card
 
-**v2.2.0** · 中文 / English 双语
+**v2.3.0** · 中文 / English 双语
 
 > 一条「指令 → 文件」的存取约定。
 > 不生产内容，只负责让 AI 在动手之前，读对文件、读对章节。
@@ -15,10 +15,10 @@
 > *A routing convention between «instruction» and «file».*
 > *It produces no content — it only makes sure the AI reads the right file, at the right section, before it starts.*
 
-![Version](https://img.shields.io/badge/version-v2.2.0-6a5acd?style=flat-square)
-![Files](https://img.shields.io/badge/files-172-2ec4b6?style=flat-square)
+![Version](https://img.shields.io/badge/version-v2.3.0-6a5acd?style=flat-square)
+![Files](https://img.shields.io/badge/files-345-2ec4b6?style=flat-square)
 ![Templates](https://img.shields.io/badge/templates-15-00b4d8?style=flat-square)
-![Libs](https://img.shields.io/badge/libs-A%2FB%2FC-8e44ad?style=flat-square)
+![Libs](https://img.shields.io/badge/libs-A%2FB%2FC%2FD-8e44ad?style=flat-square)
 ![Models](https://img.shields.io/badge/models-Seedance%202.5%20%7C%20SeedAudio%201.0-9d4edd?style=flat-square)
 ![Platform](https://img.shields.io/badge/platform-WorkBuddy%20%7C%20OpenClaw%20%7C%20Coze%20%7C%20Dify-ff9f43?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-ffca3a?style=flat-square)
@@ -406,6 +406,11 @@
 | 🔖 **锚点** | @CHR/@SCN/@PRP 编码 | **一阶·立鼎**：三包统一主键，名字会变码不变，断链从源头杜绝 |
 | 🔐 **六把锁** | CINEDANCE 六锁英文短句 | **五阶·炼神**：首帧占用 / 空间调度 / 视线分离 / 地标邻近 / 多镜连续 / 上下文隔离，填空即用 |
 | 🎨 **调色** | 60/30/10 调色板 | **三阶·炼精**：每场景一套色配比 + 光影四要素 + 全剧五色系收敛 |
+| 🧭 **选型** | 情境映射 E01–E15 | **四阶·炼气**：这场戏该用什么镜头——80/15/5 权重 + 构图雷区双态，解决"全靠临场发挥" |
+| 🎬 **赛道** | 四赛道分流 | **一阶·立鼎**：国内剧 / 海外剧 / 解说类 / 其他——选错赛道，全套规则错配 |
+| 🔍 **采风** | 对标情报卡 | **一阶·立鼎**：对标爆款的公开信息采集 + 十三项字段 + 六条证据纪律 |
+| 🥋 **打戏** | 三套打戏引擎 | **五阶·炼神**：写实 / 玄幻 / 漫剧打斗是三套物理，不是一套 |
+| 🔧 **机检** | C1~C33 + H1~H12 | **六阶·还虚**：把"看着行"变成逐条可判定（74KB 手册） |
 | ☯️ **体系** | 道教体系总纲 | 全阶：道生万物 / 三丹田 / 五行六关 / 精气神三宝；出问题先定位在第几阶 |
 
 ---
@@ -512,7 +517,7 @@ xiaozhi-will/
 └── xiaozhi-will/                  技能本体（154 文件）
     ├── SKILL.md                   主入口：六步流程 / 路由总表 / 仲裁 / 自检
     ├── DISTRIBUTE.md              安装与前置条件
-    ├── references/                13 份方法论 ＋ 索引 ＋ 原版 HTML 备份
+    ├── references/                15 份方法论 ＋ 索引 ＋ 原版 HTML 备份
     │   ├── 08-nolan-cinematic.md              诺兰电影化手法全文（P0 基石，66KB）
     │   ├── 09A-domestic-gate-lib.md           A 库：Asset-First 六阶段 / 三铁律
     │   ├── 09B-overseas-three-libs.md         B 库：LIRA / CINEDANCE / ACTING
@@ -526,11 +531,14 @@ xiaozhi-will/
     │   ├── 14-anchor-coding.md                **资产锚点编码**：@CHR/@SCN/@PRP 格式与分配规则
     │   ├── 15-cinedance-six-locks.md          **六把锁英文短句**：填空模板 + FOV° 六档 + 20 问 QA
     │   ├── 16-lighting-palette.md             **调色与光影**：60/30/10 + 全剧五色系 + 三条禁则
+    │   ├── 17-laoli-engines-map.md              **老李 12 引擎 · 道教六阶归位图**
+    │   ├── 18-decision-engine.md               **炼气阶选型依据**：E01~E15 + 80/15/5 + 雷区双态
     │   └── route-card-full-source.html        原始 HTML 全量备份（172KB）
-    ├── external-libs/             外部三库原库原文（130 文件）
+    ├── external-libs/             外部四库原库原文（301 文件）
     │   ├── A-short-drama-director/   28 份规则库 ＋ 打戏子库
     │   ├── B-overseas-three-libs/    LIRA / CINEDANCE / ACTING 中文全本
-    │   └── C-yangzi-10skill/         洋子 10-Skill 工程
+    │   ├── C-yangzi-10skill/         洋子 10-Skill 工程
+    │   └── D-laoli-suite/            **漫剧老李 V7.4.26 全套**：1 总控 + 12 引擎（MIT）
     ├── templates/                 15 份空白项目模板 ＋ 索引
     │   ├── 01–10                  内容骨架（总索引 / 三资产包 / 分镜 / 机位图 / SOP / 剧本核对 / MasterProfile / 场景锁定）
     │   └── A0–A5                  工程纪律（铁律卡 / 项目状态 / 30秒分镜 / 情绪库 / 剧本过检）
@@ -601,6 +609,44 @@ xiaozhi-will/
 ---
 
 ## 📜 更新记录
+
+### v2.3.0 — 2026-10-26 · 并入漫剧老李套装（道教化归位）
+
+**来源**：`github.com/lixiaoxiao9888-create/manju-laoli-skill` · 漫剧老李 V7.4.26 多技能套装版 · **MIT License**（版权声明完整保留）。
+
+**并入内容**：1 总控 + 12 子技能，共 170 个文件，作为 **D 库**放在 `external-libs/D-laoli-suite/`。**原包一字未改**，道教化归类写在我们自己的 `references/17` 与 `18` 里。
+
+**道教六阶归位**（这是本次的核心动作）
+
+| 阶 | 归入的老李引擎 | 补了什么 |
+|:--:|:---|:---|
+| 一 · 立鼎 | 〇·0 赛道分流 · 〇·1 素材来源锁 · sd-recon-engine | **四赛道意识 + 采风情报卡**——选错赛道，后面全套规则错配 |
+| 二 · 采药 | sd-script-engine · sd-jieshuo-engine · sd-overseas-engine | 剧本六阶段 250KB 细则；解说类旁白稿规范；海外剧语言契约 |
+| 三 · 炼精 | sd-asset-engine | 人物肖像 52KB / 场景网格 26KB / 三单提取 28KB 具体模板 |
+| 四 · 炼气 | **sd-decision-engine** · sd-storyboard-engine | **选型依据**——"这场戏该用什么镜头"；机位系统 54KB |
+| 五 · 炼神 | sd-feed-engine · sd-combat / xuanhuan / real-engine | 投喂七段式 + 六道闸门；**三套打戏物理**（写实/玄幻/漫剧） |
+| 六 · 还虚 | sd-qc-engine | **机检 C1~C33 / H1~H12**（74KB 逐条可判定） |
+
+**新增两份文档**
+
+- `references/17-laoli-engines-map.md`：12 引擎六阶归位图。含「四层纵深 vs 六阶纵切」的双视角说明、六道前置锁落地位置、冲突仲裁（**用手艺，盖我们的章**）。
+- `references/18-decision-engine.md`：炼气阶选型依据精简版。E01~E15 情境（12 基础 + 3 进阶）+ 80/15/5 权重机制 + 辅助锚点池 + 增强项池 + 构图雷区 A/B 双态 + 四步选 ID 流程。
+
+**为什么这一项最关键**
+
+老李原话点得很准：「全流程有'怎么拍'，但缺'**选型依据**'——同一场'女主鼓起勇气告白'的戏，到底该用长焦仰拍缓推，还是广角手持快摇？没有依据时，分镜设计全靠临场发挥。」
+
+我们 v2.2.0 补了六把锁（**怎么写**），但没补"为什么选这个"（**选哪个**）。老李补上了这一环。
+
+**三条使用边界**
+
+1. 原包未做任何修改，保留 MIT 版权声明，便于日后与上游同步。
+2. **术语冲突时用我们的**：老李用「图N」，我们用 `@CHR/@SCN/@PRP`。
+3. 老李默认 9:16 / Seedance 2.5，**同样不得覆盖本剧锁定值**（仲裁⑦）。
+
+**验收**
+
+- references 13 → 15 份；external-libs 三库 → 四库（130 → 301 文件）；总文件 172 → 345 个。
 
 ### v2.2.0 — 2026-10-26 · 补齐原始内容缺口（四项内容库 + 两份模板）
 

@@ -1,6 +1,6 @@
-# external-libs/ 外部三库原文（深挖层，按需取用）
+# external-libs/ 外部四库原文（深挖层，按需取用）
 
-`references/09A–09E` 是**要点与路由**（先读它，够用就不必往下翻）；本目录放的是**原库原文**（要细则、要完整规则条文时再进）。
+`references/09A–09E`、`17`、`18` 是**要点与路由**（先读它，够用就不必往下翻）；本目录放的是**原库原文**（要细则、要完整规则条文时再进）。
 
 > **边界（仲裁⑦）**：原库一律"只补方法、不覆盖参数"。它们的默认值（竖屏 9:16 / R2 商业高燃 / 21:9 / Higgsfield 模型 / Seedance 2.0）**不得覆盖本剧锁定值**（`【画幅】` / `【出图模型】` / `【视频模型】` / `【帧率】` / `【风格】`）。原库也**不提供剧情**——剧情唯一来源是剧情源（第十章）。
 
@@ -69,6 +69,43 @@ C-yangzi-10skill\
 2. **包内 `scripts\` 含 5 个 `.ps1` / 3 个 `.command` 安装脚本**（会把 10 个 Skill 装进 Codex 的 `~/.codex/skills`，并写知识库路径）。本技能**不会执行**它们，仅作资料保留。**别在没读完之前运行**；要用请自己先过一遍脚本内容。
 
 **没有完整正文也不影响主流程**——`references/09E-yangzi-10skill-engineering.md` 已内嵌八阶段映射、入口门禁 A/B/C/D、目录映射、08 两步门、工程纪律六条。C 库补的是"洋子那套工程组织与阶段门禁"的原始说法。
+
+## D 库 · 漫剧老李 V7.4.26 多技能套装（✅ 完整原文 · 新增 v2.3.0）
+
+路径：`D-laoli-suite/`，171 个文件。来源：`github.com/lixiaoxiao9888-create/manju-laoli-skill`（**MIT License**，版权声明已保留在 `D-laoli-suite/LICENSE`）。
+
+**结构**：1 总控 + 12 子技能。**六阶归位见 `references/17-laoli-engines-map.md`**（说清每个引擎在哪一阶用）。
+
+```
+D-laoli-suite/
+├─ short-drama-director/     总控（183KB SKILL.md）+ 41 份 references + style-bible（8 份）
+├─ sd-recon-engine/          素材采风 · 对标情报卡             → 一阶 立鼎
+├─ sd-script-engine/         剧本六阶段链（250KB 细则）        → 二阶 采药
+├─ sd-jieshuo-engine/        解说叙事赛道（旁白稿）            → 二阶 采药
+├─ sd-overseas-engine/       海外剧赛道（语言契约）            → 二阶 采药
+├─ sd-asset-engine/          资产三包模板（125KB）             → 三阶 炼精
+├─ sd-decision-engine/       ★ 分镜选型依据（E01~E15）         → 四阶 炼气
+├─ sd-storyboard-engine/     分镜（机位系统 54KB + 镜头经济）  → 四阶 炼气
+├─ sd-feed-engine/           投喂七段式 + 六道闸门             → 五阶 炼神
+├─ sd-combat-engine/         打戏（铁律 69KB + 招式库 81KB）   → 五阶 炼神
+├─ sd-xuanhuan-engine/       玄幻（兵器参数库 36KB）           → 五阶 炼神
+├─ sd-real-engine/           写实武打（运动链 11 环）          → 五阶 炼神
+└─ sd-qc-engine/             机检 C1~C33 / H1~H12（74KB）      → 六阶 还虚
+```
+
+**最值得先看的三份**
+
+| 你要解决什么 | 打开 |
+|---|---|
+| 分镜选型没依据（这场戏该用什么镜头） | `sd-decision-engine/references/context-mapping.md`（E01~E15 + 80/15/5）；我们的精简版见 `references/18-decision-engine.md` |
+| 机检到底查哪些项 | `sd-qc-engine/references/machine-check-manual.md`（74KB，C1~C33 / H1~H12 逐条） |
+| 老李的六道前置锁 | `short-drama-director/SKILL.md` 〇节（赛道 / 来源 / 模型 / 画幅 / 交付 / 段缝） |
+
+**⚠ 三条使用边界**
+
+1. **原包未做任何修改**。我们的道教化归类写在 `references/17` 与 `18`，不侵入 D 库原文。MIT 允许修改，但保留原文更便于日后与上游同步。
+2. **术语冲突时用我们的**：老李用「图N」编号，我们用 `@CHR/@SCN/@PRP`（见 `references/14-anchor-coding.md`）。
+3. **老李的默认值同样不得覆盖本剧锁定值**（仲裁⑦）。他默认 9:16 / Seedance 2.5，本剧以参数卡为准。
 
 ## 体积与来源
 
